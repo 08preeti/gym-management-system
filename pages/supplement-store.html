@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supplement Store - Gym Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<!-- Top Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between max-w-5xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight">Supplement Store</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">shopping_cart</span>
+<span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">3</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 pb-4 pt-2 max-w-5xl mx-auto w-full">
+<label class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-base focus:ring-2 focus:ring-primary placeholder:text-slate-500" placeholder="Search supplements, gear..." type="text"/>
+</label>
+</div>
+<!-- Categories -->
+<div class="flex gap-3 px-4 pb-4 overflow-x-auto no-scrollbar max-w-5xl mx-auto w-full">
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl bg-primary px-5 text-white text-sm font-semibold">All</button>
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 px-5 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Protein</button>
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 px-5 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Pre-Workout</button>
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 px-5 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Vitamins</button>
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 px-5 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Creatine</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 max-w-5xl mx-auto w-full p-4 overflow-y-auto">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold">Popular Products</h2>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Product 1 -->
+<div class="group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg dark:hover:shadow-primary/5">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Black protein powder container with blue label" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3__vBF9rLShpS9mqsLYE_uXfbiJ1k2GSiHUWk-W69-fnObjVDAQSOX-_U78DSbDmvSrZB8t9m0ww6sHhxhsr5_Urd6LOY2BxR97FxzmMihaM_LtOtKZ3CPztFyoek6sEBlN_HpDbCULWVlkoMPt6VVfcyswfM5xfNzsazp690lqVerI1Otudm7RTjTtm6eMxyHSCIDYrWu95JoyvkWBnuiwSlJozWa6o4gzNdR6Dy8XbIKe8kVd4_ZAGT7bVD3aaI51rH_tC6t7S7"/>
+<span class="absolute top-2 right-2 bg-primary/90 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Top Rated</span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="font-semibold text-sm line-clamp-2 mb-1">Optimum Gold Whey Protein 2kg</h3>
+<div class="mt-auto">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2">15 in stock</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-primary">$64.99</span>
+<button class="flex size-8 items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg dark:hover:shadow-primary/5">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Blue pre-workout container on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALx2ePRD2PSUm1LxR5omT9UzvnUTGrQNddsTDy7e1kRO2mYoQkf66LhQ71F9bjR3RRMX7TV8ySI1FnWsh9p6rjQSleJPJr3FQYxn7xfjt2xTzg-fv_A_4UX5LenObQcOeOEDIdHOF0L53qW-E5axXxEpgtu0IRfSIW3AiWRVkk81uIoy6n0BR3NN3vAtVhc7gmRDNVEIxDUMJZ0mcZTXzWx2F9EkVxacUNteL0nptG08SOsHnpKQ7Smiaz-4THLhAkQk8g6CdllbFQ"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="font-semibold text-sm line-clamp-2 mb-1">C4 Original Pre-Workout Icy Blue</h3>
+<div class="mt-auto">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2">8 in stock</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-primary">$32.50</span>
+<button class="flex size-8 items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg dark:hover:shadow-primary/5">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Orange vitamin bottle with clear pills visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVbw0-6l28uzCNvdI_nDMeKeXVgIXCq6KywhLC2lxH3yMjt6Xwa_xM4Xf_FojvUlX0X9eZ3jK4pqO1YLifhnLcYedvKttnKxGvHKqkuHxRShfW6iNEC5LrFKCAceN549SFvbeOv48YU8KjM5sK8DboT0la1NquS6_zM1mQv2TXH61ZNsQJ_ElX1N75PK9YVAazRf4K1-pnVBCHydzcO0NITbnXvDOncpAuZ8WBVGcSlJOiutfv9eDWn-4y1dI4jGEsUFwvc__GUm96"/>
+<span class="absolute top-2 right-2 bg-slate-800/80 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">New</span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="font-semibold text-sm line-clamp-2 mb-1">Multivitamin Daily Complex (90 Caps)</h3>
+<div class="mt-auto">
+<p class="text-xs text-orange-500 font-medium mb-2">Low stock: 3 left</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-primary">$19.99</span>
+<button class="flex size-8 items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg dark:hover:shadow-primary/5">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Creatine monohydrate container with scoop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf30M2NHlaqhbEAYvJfK0uXJftB8ZvZ8qGN96eMJBj2DG9gzVnyPneRo78ROU2pF_rEkvKoVIcsdb89VW541WwXqbwjrLYPZlZAqB8DC08j6Fiue_FRi-Vh2BI8cVkR8tMqLxqiSluBcPgYJEO54VRVuq4FUJV0K5ivnl45ywQQIruNWtujre_lh53fSztsZBElKtxB1hRSLRbog_c6s9IzlKOjhAM6YYxcBGnMqORMjhzwwpRRQeBAjtR0h1Klr8oijss88zztQfw"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="font-semibold text-sm line-clamp-2 mb-1">Pure Creatine Monohydrate 500g</h3>
+<div class="mt-auto">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2">24 in stock</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-primary">$28.00</span>
+<button class="flex size-8 items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg dark:hover:shadow-primary/5">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="BCAA workout drink shaker and container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGa4FDSAuWMV6X16bFCGK4vQQ6PNwzyo3cjgMo4ulfGZ8CC4XkupfVpRVqxJalqJOVDzVHJsjVtpSmjPMXse--mcl6g3Jcx78bTJYy4rdS3EdUoC9imuJGe4VxJRrMAAWUzYlqZNj-zw0fuxWOh1LRqrsdOhFetUTWrUJyaYEd1UZG4LjxUXZ0a_L04Tz0yFO-IdxeF0y2PWCsS7qqArkA51jKGUW6uyXYfW8qvHa8rjXcmUYqy7hDYocdVzlYogc_cYoIXzopdbSU"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="font-semibold text-sm line-clamp-2 mb-1">BCAA 2:1:1 Amino Recovery 300g</h3>
+<div class="mt-auto">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2">12 in stock</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-primary">$24.95</span>
+<button class="flex size-8 items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="group flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all hover:shadow-lg dark:hover:shadow-primary/5">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800">
+<img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High quality gym shaker bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-0NDoSvqYj4bw5Vq_wj_kjZ_JoxPZ-97Vycd1bzgHX1_u1283qa6VrUd3ZblrXvSEO8ZlSd6WXtPe4phKw6_oxRudSVPvgSvGwmt2b-n9g_-u9EDfc2jdFAq8rJgMBxcrEhqqAEqLSjPYeQvJJbrY8njY7KNC7x4tmCMXx6Z5I40f0WCY2G9kjW1nJcpMDJJSbWeU-bRPCe0i7UDJ_JLf48FGZharEntXhMXlhXFo7kaimXYz3EmHjM7BMtk9J7ixcLMFP5wBSTBQ"/>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="font-semibold text-sm line-clamp-2 mb-1">Elite Steel Shaker Bottle 700ml</h3>
+<div class="mt-auto">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2">45 in stock</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-primary">$15.00</span>
+<button class="flex size-8 items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-2 sticky bottom-0 w-full z-50">
+<div class="flex gap-2 max-w-lg mx-auto">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Dash</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Members</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">payments</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Finance</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Admin</p>
+</a>
+</div>
+</nav>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

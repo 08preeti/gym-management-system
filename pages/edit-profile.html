@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1">Edit Profile</h2>
+<div class="size-12 flex items-center justify-end">
+<span class="material-symbols-outlined text-primary">settings</span>
+</div>
+</div>
+<!-- Profile Picture Section -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-6 items-center">
+<div class="flex gap-4 flex-col items-center relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 ring-4 ring-primary/20" data-alt="Profile photo of a fit male athlete" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhThvXF-neCigqelwB58fKmkmUUmWc2Xuy1CEvVP6ZlRCf_EaS07ItdVaLh26B-eXQPFynN5XTvNr3OACDXchdFxOW1SER01piB8ji-HYS-ZqszgY11wTdpoCH7vAOo8tPbhjC0u6aiYLI8x-FN-uR2uh3_lh2rRaBbS6gSi266Td3D1zwA5VFQpsGrqPvMjyOGh63DsarcUHkUu9Zaj6viFw9kcahJpT0xdZzG1LD3H0iirFxI9Ckr2ekuvTU95PzbTtjn8Nw20qM");'>
+</div>
+<div class="absolute bottom-10 right-0 bg-primary p-2 rounded-full border-4 border-background-dark">
+<span class="material-symbols-outlined text-white text-sm">edit</span>
+</div>
+<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight text-center">Alex Johnson</p>
+</div>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-6 bg-primary/10 text-primary text-sm font-bold leading-normal tracking-wide hover:bg-primary/20 transition-colors">
+<span class="truncate">Change Photo</span>
+</button>
+</div>
+</div>
+<!-- Form Sections -->
+<div class="px-4 pb-24 space-y-8 max-w-[600px] mx-auto w-full">
+<!-- Personal Information -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Personal Information</h3>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<label class="flex flex-col w-full">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal pb-2 px-1">Full Name</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 h-14 placeholder:text-slate-500 p-4 text-base font-normal" placeholder="Enter your name" value="Alex Johnson"/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal pb-2 px-1">Email Address</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 h-14 placeholder:text-slate-500 p-4 text-base font-normal" placeholder="Email" type="email" value="alex.j@gym-mail.com"/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal pb-2 px-1">Phone Number</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 h-14 placeholder:text-slate-500 p-4 text-base font-normal" placeholder="Phone number" type="tel" value="+1 (555) 000-1234"/>
+</label>
+</div>
+</section>
+<!-- Physical Stats -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Physical Stats</h3>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<label class="flex flex-col">
+<p class="text-slate-600 dark:text-slate-400 text-xs font-medium leading-normal pb-2 px-1 text-center">Weight (kg)</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 h-14 text-center p-2 text-base font-normal" value="82.5"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-600 dark:text-slate-400 text-xs font-medium leading-normal pb-2 px-1 text-center">Body Fat (%)</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 h-14 text-center p-2 text-base font-normal" value="14.2"/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-600 dark:text-slate-400 text-xs font-medium leading-normal pb-2 px-1 text-center">Height (cm)</p>
+<input class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 h-14 text-center p-2 text-base font-normal" value="185"/>
+</label>
+</div>
+</section>
+<!-- Account Settings -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary">lock</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Account Settings</h3>
+</div>
+<div class="space-y-4">
+<button class="flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500">key</span>
+<span class="text-base font-medium">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="flex w-full items-center justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+<span class="text-base font-medium">Notification Preferences</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 pt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-[0.98]">
+                    Save Changes
+                </button>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-transparent text-slate-500 dark:text-slate-400 text-base font-bold leading-normal hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors">
+                    Cancel
+                </button>
+</div>
+<!-- Danger Zone -->
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800">
+<button class="flex w-full items-center justify-center gap-2 text-red-500 font-medium py-2 opacity-80 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-lg">delete_forever</span>
+<span>Deactivate Account</span>
+</button>
+</div>
+</div>
+<div class="h-10"></div>
+</div>
+</body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Member - Gym Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<script src="../js/dashboard.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .form-input:focus {
+            border-color: #0d59f2 !important;
+            
+        }
+    </style>
+<style>
+   
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-2xl mx-auto flex flex-col min-h-screen">
+<!-- TopAppBar Header -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light dark:bg-background-dark p-4 border-b border-slate-200 dark:border-slate-800">
+<button class="text-slate-900 dark:text-slate-100 p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="ml-4 text-xl font-bold leading-tight tracking-tight">Add New Member</h1>
+</header>
+<form class="flex-1 p-4 space-y-8 pb-24">
+<!-- Personal Information Section -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 border-l-4 border-primary pl-3">
+<h2 class="text-lg font-bold leading-tight">Personal Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Full Name</span>
+<input class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="e.g. John Doe" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Date of Birth</span>
+<div class="relative">
+<input class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pr-12 focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none" type="date"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">calendar_month</span>
+</div>
+</label>
+</div>
+<div class="space-y-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Gender</span>
+<div class="flex flex-wrap gap-3">
+<label class="flex-1 min-w-[100px] text-sm font-medium flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 h-12 bg-white dark:bg-slate-900 cursor-pointer hover:border-primary/50 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:ring-2 has-[:checked]:ring-primary">
+<input checked="" class="hidden" name="gender" type="radio"/>
+                            Male
+                        </label>
+<label class="flex-1 min-w-[100px] text-sm font-medium flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 h-12 bg-white dark:bg-slate-900 cursor-pointer hover:border-primary/50 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:ring-2 has-[:checked]:ring-primary">
+<input class="hidden" name="gender" type="radio"/>
+                            Female
+                        </label>
+<label class="flex-1 min-w-[100px] text-sm font-medium flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 h-12 bg-white dark:bg-slate-900 cursor-pointer hover:border-primary/50 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:checked]:ring-2 has-[:checked]:ring-primary">
+<input class="hidden" name="gender" type="radio"/>
+                            Other
+                        </label>
+</div>
+</div>
+</section>
+<!-- Contact Information Section -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 border-l-4 border-primary pl-3">
+<h2 class="text-lg font-bold leading-tight">Contact Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Email Address</span>
+<input class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="john.doe@example.com" type="email"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Phone Number</span>
+<input class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="+1 (555) 000-0000" type="tel"/>
+</label>
+<label class="flex flex-col gap-2 md:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Emergency Contact (Name &amp; Phone)</span>
+<input class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Jane Doe - +1 (555) 111-2222" type="text"/>
+</label>
+</div>
+</section>
+<!-- Membership Details Section -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 border-l-4 border-primary pl-3">
+<h2 class="text-lg font-bold leading-tight">Membership Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Membership Plan</span>
+<div class="relative">
+<select class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pr-12 focus:ring-2 focus:ring-primary/20 outline-none appearance-none cursor-pointer">
+<option value="basic">Basic Plan</option>
+<option value="premium">Premium Plan</option>
+<option value="vip">VIP Access</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Start Date</span>
+<div class="relative">
+<input class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 focus:ring-2 focus:ring-primary/20 outline-none appearance-none" type="date"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">event_available</span>
+</div>
+</label>
+<label class="flex flex-col gap-2 md:col-span-2">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Fee Package</span>
+<div class="relative">
+<select class="w-full h-14 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pr-12 focus:ring-2 focus:ring-primary/20 outline-none appearance-none cursor-pointer">
+<option value="monthly">Monthly Subscription - $49.99</option>
+<option value="quarterly">Quarterly Plan - $129.99</option>
+<option value="annual">Annual Membership - $450.00</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">payments</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Submit Button Footer -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-2xl mx-auto">
+<button type="button" class="add-member-btn w-full h-14 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">person_add</span>
+Register Member
+</button>
+</div>
+</div>
+</form>
+</div>
+</body></html>

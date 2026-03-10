@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reason for Leaving - Gym Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .radio-custom:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1">Feedback</h2>
+<div class="size-12"></div> <!-- Spacer for centering -->
+</div>
+<!-- Header Section -->
+<div class="px-4 pt-6 pb-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight">
+                We're sorry to see you go. Could you tell us why?
+            </h3>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Your feedback helps us improve our services for everyone.</p>
+</div>
+<!-- Options List -->
+<div class="flex flex-col gap-3 p-4">
+<label class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex-row-reverse cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<input checked="" class="radio-custom h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="reason" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium">Moving away</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex-row-reverse cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<input class="radio-custom h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="reason" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium">Too expensive</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex-row-reverse cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<input class="radio-custom h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="reason" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium">Not enough equipment</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex-row-reverse cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<input class="radio-custom h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="reason" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium">Found another gym</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex-row-reverse cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<input class="radio-custom h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="reason" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium">Lack of time</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 p-4 flex-row-reverse cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<input class="radio-custom h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-transparent checked:border-primary checked:bg-primary focus:outline-none focus:ring-0 focus:ring-offset-0" name="reason" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium">Other</p>
+</div>
+</label>
+</div>
+<!-- Text Area Section -->
+<div class="flex flex-col gap-2 px-4 py-3">
+<label class="flex flex-col w-full">
+<p class="text-slate-900 dark:text-slate-100 text-base font-medium pb-2">Additional Comments</p>
+<textarea class="form-input flex w-full rounded-xl text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 placeholder:text-slate-400 dark:placeholder:text-slate-500 min-h-[120px] p-4 text-base font-normal leading-normal transition-all" placeholder="Anything else you'd like to share?"></textarea>
+</label>
+</div>
+<!-- Action Buttons -->
+<div class="mt-auto p-4 flex flex-col gap-3">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-[0.98]">
+                Submit Feedback
+            </button>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-5 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-base font-bold leading-normal tracking-wide hover:bg-slate-300 dark:hover:bg-slate-700 transition-all active:scale-[0.98]">
+                Skip
+            </button>
+</div>
+<!-- Footer Spacer -->
+<div class="h-8"></div>
+</div>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<button class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Contact Support</h2>
+</div>
+<main class="flex-1 max-w-xl mx-auto w-full p-4 space-y-6">
+<!-- Header Info -->
+<div class="space-y-2">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">How can we help?</h1>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Fill out the form below and our gym management team will get back to you within 24 hours.</p>
+</div>
+<!-- Form Fields -->
+<div class="space-y-4">
+<!-- Subject Input -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-semibold">Subject</label>
+<input class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Briefly describe the issue" type="text"/>
+</div>
+<!-- Category Dropdown -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-semibold">Category</label>
+<select class="form-select w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+<option disabled="" selected="" value="">Select a category</option>
+<option value="billing">Billing &amp; Payments</option>
+<option value="membership">Membership Plans</option>
+<option value="technical">App Technical Issue</option>
+<option value="equipment">Gym Equipment/Facility</option>
+<option value="other">Other</option>
+</select>
+</div>
+<!-- Message Textarea -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-semibold">Message / Description</label>
+<textarea class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all min-h-[160px] placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Please provide as much detail as possible..."></textarea>
+</div>
+<!-- Attachments -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-semibold">Attachments (Optional)</label>
+<button class="flex items-center justify-center gap-2 w-full py-4 px-4 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-symbols-outlined">upload_file</span>
+<span class="text-sm font-medium">Attach Image or Screenshot</span>
+</button>
+<p class="text-[10px] text-slate-500 dark:text-slate-500 italic">PNG, JPG up to 5MB</p>
+</div>
+</div>
+<!-- Important Notice Card -->
+<div class="bg-primary/10 border border-primary/20 p-4 rounded-xl flex gap-3">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                    If this is an emergency regarding your facility access or a safety concern, please call our 24/7 hotline directly at +1 (800) GYM-HELP.
+                </p>
+</div>
+</main>
+<!-- Submit Button Footer -->
+<div class="mt-auto p-4 border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark sticky bottom-0">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 active:scale-[0.98]">
+                Submit Ticket
+            </button>
+</div>
+<div class="h-6 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

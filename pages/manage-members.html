@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined block">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight">Manage Members</h1>
+</div>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined block text-primary">notifications</span>
+</button>
+</div>
+<div class="px-4 pb-4">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 bg-slate-100 dark:bg-slate-800/50 border-none rounded-xl focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-800 text-sm placeholder-slate-500 transition-all" placeholder="Find by name or email" type="text"/>
+</div>
+</div>
+<div class="px-4 pb-4 overflow-x-auto custom-scrollbar flex gap-2">
+<button class="px-5 py-1.5 rounded-full text-sm font-medium bg-primary text-white whitespace-nowrap">All</button>
+<button class="px-5 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:border-primary/30 whitespace-nowrap">Active</button>
+<button class="px-5 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:border-primary/30 whitespace-nowrap">Inactive</button>
+<button class="px-5 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:border-primary/30 whitespace-nowrap">Premium</button>
+<button class="px-5 py-1.5 rounded-full text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:border-primary/30 whitespace-nowrap">Expired</button>
+</div>
+</header>
+<main class="flex-1 p-4 space-y-4 pb-24">
+<div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary/20" data-alt="Professional woman portrait for member profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Zw2UiiD9wqI5q7I3DRzf9R_swiJDZx6fuIri65J9NWv0ByuO3N5sC5xYp43kdd-TdJKB7GfMDOI-ZRsFqf5Wd0YsLwx70lVyVbBdBlQh57ZYrPo2ficnfEwq94M7IMsgyoeMxZmAu5byLNxZA8LDwAhPSR_zj5FoxfnaQUIpShlIpTevYFh8lJgMtYlSVeaCoZc6rImO10cUopV4bGT7mnddUl9ebqOFRJyMwH4tN7nvfDjQGkhQXGyxVzwW2uhfQJ1RQT7tpDSc"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
+</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Sarah Jenkins</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Premium Plan</p>
+<div class="mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 uppercase tracking-wider">Active</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary/20" data-alt="Young man portrait for member profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwSOTo68GvdQ8BPUFJr20c2wI4-McoD-YxB8qcIrGQS-hE55mDM1ysKbldvuwXARXVUmj12iUYt_ziDs8EZzZmkTNqEDMWQEA75534iIyLdnaesfyc4MvckvvAiSxQh9VIUcyRWD7BAdo_TLiu_Jer5vXoswotzw-QPAFpD6kkOI5MjI6nXopbVp7QP3oQmMa0bDJK71HwJ_csSaF6_4C1CdhW6MoTyypxP6eAF6ms8dtjozRd8OEnF6JwT5Z0mcC8_TBQwWinB75B"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-slate-400 border-2 border-white dark:border-slate-800 rounded-full"></div>
+</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">David Miller</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Basic Plan</p>
+<div class="mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 dark:bg-red-500/10 text-red-700 dark:text-red-400 uppercase tracking-wider">Expired</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary/20" data-alt="Smiling woman portrait for member profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtm9hDerf-xtiAIhqLd348y8J7W1O_azPx1pXgSiD50SIb9HRj7vyAbxfVUQgAfm7T1XwDoLfd-zaAFgboURKcS7074Y6O55G6smi3IjVwbf5o_RJlNSxk55nEJWu36ErSn51ffWN2NaZDZIVIjjz9RzU5lmOjGRuC47fWkBAoN5e81RrkuKmjhGz0LqyNmce0_wPmro3MOGhF8lK7ERgyOMS_S2xT513mvrJQck1yD4D24WHAcm5IilQoWr8TueGXRnq1bf5fL2kY"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-amber-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
+</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Elena Rodriguez</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Premium Plan</p>
+<div class="mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 uppercase tracking-wider">Pending</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary/20" data-alt="Young man portrait for member profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTV5TWuzr_19xzihnXnHIHEyqP8k5nyqDzM76_Mw4kOyBaVmHkJ7UGzYYkEXlXgAa-RCXlq6PlDJQKCgaEXv5qcgAEj7PhkbLZDzt0-G6VN49mEHkd_GCMszV3t2QheW1IKt7rJdY6rftqWOVU3H0jRO42m7dhmaR-t-Hloyop4P3s1mftnQLSPIIce3HIO9LU-DXbYzI1jx_T-sr4sJDRTfyWrvP1IW2hURpO5IPbcHnIBsL2fDoUfJNqsTJRgJDQOjhcXnlYymuZ"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
+</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Marcus Thorne</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Premium Plan</p>
+<div class="mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 uppercase tracking-wider">Active</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</main>
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/40 flex items-center justify-center hover:scale-105 transition-transform active:scale-95 z-20">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-2 py-1 flex justify-around items-center z-30">
+<a class="flex flex-col items-center gap-1 p-2 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">group</span>
+<span class="text-[10px] font-bold">Members</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-medium">Finance</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Admin</span>
+</a>
+</nav>
+</body></html>

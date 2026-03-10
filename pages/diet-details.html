@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Diet Details - Gym Management</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Diet Details</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-xl h-12 bg-transparent text-slate-900 dark:text-slate-100">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<!-- Date Selector -->
+<div class="flex gap-3 p-4 overflow-x-auto no-scrollbar">
+<div class="flex flex-col items-center justify-center min-w-[3.5rem] h-16 rounded-xl bg-slate-200 dark:bg-slate-800/50">
+<p class="text-xs text-slate-500">Mon</p>
+<p class="font-bold">12</p>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[3.5rem] h-16 rounded-xl bg-slate-200 dark:bg-slate-800/50">
+<p class="text-xs text-slate-500">Tue</p>
+<p class="font-bold">13</p>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[3.5rem] h-16 rounded-xl bg-primary text-white">
+<p class="text-xs opacity-80">Wed</p>
+<p class="font-bold">14</p>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[3.5rem] h-16 rounded-xl bg-slate-200 dark:bg-slate-800/50">
+<p class="text-xs text-slate-500">Thu</p>
+<p class="font-bold">15</p>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[3.5rem] h-16 rounded-xl bg-slate-200 dark:bg-slate-800/50">
+<p class="text-xs text-slate-500">Fri</p>
+<p class="font-bold">16</p>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[3.5rem] h-16 rounded-xl bg-slate-200 dark:bg-slate-800/50">
+<p class="text-xs text-slate-500">Sat</p>
+<p class="font-bold">17</p>
+</div>
+</div>
+<!-- Calories Overview -->
+<div class="px-4 py-2">
+<div class="bg-slate-100 dark:bg-slate-800/40 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h3 class="text-sm font-medium text-slate-500 uppercase tracking-wider">Calories Goal</h3>
+<p class="text-3xl font-bold">1,875 <span class="text-lg font-normal text-slate-400">/ 2,500 kcal</span></p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-lg">625</p>
+<p class="text-xs text-slate-500">Remaining</p>
+</div>
+</div>
+<div class="w-full h-3 bg-slate-300 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 75%;"></div>
+</div>
+<!-- Macros Breakdown -->
+<div class="grid grid-cols-3 gap-4 mt-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Protein</span>
+<span class="font-medium">142g / 180g</span>
+</div>
+<div class="h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full">
+<div class="h-full bg-blue-500 rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Carbs</span>
+<span class="font-medium">210g / 300g</span>
+</div>
+<div class="h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full">
+<div class="h-full bg-green-500 rounded-full" style="width: 70%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Fats</span>
+<span class="font-medium">58g / 85g</span>
+</div>
+<div class="h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full">
+<div class="h-full bg-yellow-500 rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Water Tracker -->
+<div class="px-4 py-4">
+<div class="flex items-center justify-between bg-primary/10 dark:bg-primary/5 p-4 rounded-xl border border-primary/20">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div>
+<h4 class="font-semibold text-sm">Water Intake</h4>
+<p class="text-xs text-slate-500">1.8L of 3.0L goal</p>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="size-8 rounded-full bg-primary text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Meal Plan -->
+<div class="px-4 pb-24">
+<h3 class="text-lg font-bold mb-4">Daily Meal Plan</h3>
+<div class="space-y-4">
+<!-- Breakfast -->
+<div class="bg-slate-100 dark:bg-slate-800/40 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="p-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">wb_sunny</span>
+<h4 class="font-semibold">Breakfast</h4>
+</div>
+<span class="text-sm font-medium text-slate-500">450 kcal</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm font-medium">Oatmeal with Blueberries</p>
+<p class="text-xs text-slate-500">1 bowl (250g)</p>
+</div>
+<span class="text-xs font-semibold">320 kcal</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm font-medium">Greek Yogurt</p>
+<p class="text-xs text-slate-500">150g</p>
+</div>
+<span class="text-xs font-semibold">130 kcal</span>
+</div>
+</div>
+</div>
+<!-- Lunch -->
+<div class="bg-slate-100 dark:bg-slate-800/40 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="p-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">lunch_dining</span>
+<h4 class="font-semibold">Lunch</h4>
+</div>
+<span class="text-sm font-medium text-slate-500">620 kcal</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm font-medium">Grilled Chicken Breast</p>
+<p class="text-xs text-slate-500">200g</p>
+</div>
+<span class="text-xs font-semibold">330 kcal</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm font-medium">Quinoa &amp; Roasted Veggies</p>
+<p class="text-xs text-slate-500">150g</p>
+</div>
+<span class="text-xs font-semibold">290 kcal</span>
+</div>
+</div>
+</div>
+<!-- Snacks -->
+<div class="bg-slate-100 dark:bg-slate-800/40 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="p-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">ios</span>
+<h4 class="font-semibold">Snacks</h4>
+</div>
+<span class="text-sm font-medium text-slate-500">180 kcal</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm font-medium">Almonds &amp; Apple</p>
+<p class="text-xs text-slate-500">1 serving</p>
+</div>
+<span class="text-xs font-semibold">180 kcal</span>
+</div>
+</div>
+</div>
+<!-- Add Meal Button -->
+<button class="w-full py-4 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-slate-500 flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-medium">Add Dinner</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-[#1b1f27] border-t border-slate-200 dark:border-[#282e39] px-4 pb-6 pt-2 flex items-center justify-between z-20">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<p class="text-[10px] font-medium">Workout</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<p class="text-[10px] font-medium">Shop</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-[10px] font-medium">Social</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">account_circle</span>
+<p class="text-[10px] font-medium">Profile</p>
+</a>
+</nav>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</body></html>

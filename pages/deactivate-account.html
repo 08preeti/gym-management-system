@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "destructive": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<div class="max-w-xl w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden">
+<!-- Top Visual Accent -->
+<div class="h-2 bg-destructive"></div>
+<div class="p-8 md:p-12">
+<!-- Warning Icon Header -->
+<div class="flex flex-col items-center text-center mb-8">
+<div class="w-20 h-20 rounded-full bg-destructive/10 flex items-center justify-center mb-6">
+<span class="material-icons text-destructive text-5xl">report_problem</span>
+</div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-3">Deactivate Account?</h1>
+<p class="text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">
+                    You are about to deactivate your FitCore gym account. This action is significant and will impact your access to all services.
+                </p>
+</div>
+<!-- Impact Summary -->
+<div class="bg-slate-50 dark:bg-slate-800/40 rounded-lg p-6 mb-8 border border-slate-200 dark:border-slate-700/50">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">What happens next</h2>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-icons text-destructive text-sm mt-1">cancel</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-slate-200">Membership Termination</p>
+<p class="text-sm text-slate-600 dark:text-slate-400">All active gym memberships and facility access will be revoked immediately.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-icons text-destructive text-sm mt-1">history</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-slate-200">Data Loss</p>
+<p class="text-sm text-slate-600 dark:text-slate-400">Workout history, personal records, and progress photos will be permanently removed.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-icons text-destructive text-sm mt-1">receipt_long</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-slate-200">Billing Records</p>
+<p class="text-sm text-slate-600 dark:text-slate-400">Past invoices and billing statements will no longer be accessible via the app.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-icons text-destructive text-sm mt-1">sync_disabled</span>
+<div>
+<p class="font-medium text-slate-900 dark:text-slate-200">No Recovery</p>
+<p class="text-sm text-slate-600 dark:text-slate-400">This action cannot be undone. Account restoration is not available once confirmed.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row-reverse gap-4">
+<button class="flex-1 py-4 px-6 bg-destructive hover:bg-destructive/90 text-white font-bold rounded-lg transition-all focus:ring-4 focus:ring-destructive/30">
+                    Confirm Deactivation
+                </button>
+<button class="flex-1 py-4 px-6 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-all shadow-lg shadow-primary/20">
+                    Keep My Account
+                </button>
+</div>
+<!-- Footer Note -->
+<p class="text-center mt-8 text-xs text-slate-500 dark:text-slate-500">
+                Need help instead? <a class="text-primary hover:underline" href="#">Contact Member Support</a>
+</p>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-20 overflow-hidden">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-destructive rounded-full blur-[120px]"></div>
+</div>
+</body></html>

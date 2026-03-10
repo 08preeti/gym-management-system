@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gym Member Check-in</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Header -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Access Pass</h1>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">settings</span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto px-6 py-8">
+<!-- Streak & Summary Section -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-primary/10 border border-primary/20 p-4 rounded-xl">
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider mb-1">Weekly Streak</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">local_fire_department</span>
+<span class="text-2xl font-bold">4 Days</span>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 p-4 rounded-xl">
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider mb-1">Last Visit</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">calendar_today</span>
+<span class="text-lg font-bold">Yesterday</span>
+</div>
+</div>
+</div>
+<!-- Main QR Code Card -->
+<div class="bg-white dark:bg-slate-800/40 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-xl flex flex-col items-center mb-8">
+<h2 class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-6 tracking-widest uppercase">Member QR Access</h2>
+<div class="relative p-6 bg-white rounded-2xl shadow-inner mb-6">
+<div class="size-64 bg-slate-100 rounded-lg flex items-center justify-center bg-cover bg-center" data-alt="Digital QR code for gym membership access" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7vs9FhB9ELJvIg-Tv2WdWhfx06B9elv-AXwU6hvakrPB4jSHvqiatrEqWYx9H5fixvxmLAWV3uAQYpbcUZinayi44YDVZQ3jFLsIO1KKV0vwZUEUV4ZqwEGvv-GGVj8lzhWY6jvWjPPiQi9WShDnsG-a__RR6bG81w4a_UO6XNvWMIQfrb0LxeVMmKU9YEdusvr1NgSgZPQXoErGl5qWyWt3bX7kgthg02Uo3m_JgIVUj1y6bsVinYAQP_cQBItbgbp0cuKhRP6J4');">
+</div>
+<!-- Scanning corners -->
+<div class="absolute top-0 left-0 size-8 border-t-4 border-l-4 border-primary rounded-tl-xl"></div>
+<div class="absolute top-0 right-0 size-8 border-t-4 border-r-4 border-primary rounded-tr-xl"></div>
+<div class="absolute bottom-0 left-0 size-8 border-b-4 border-l-4 border-primary rounded-bl-xl"></div>
+<div class="absolute bottom-0 right-0 size-8 border-b-4 border-r-4 border-primary rounded-br-xl"></div>
+</div>
+<p class="text-center text-slate-500 dark:text-slate-400 text-sm mb-8 max-w-[240px]">
+                Hold this code near the scanner at the entrance gates.
+            </p>
+<!-- Backup Manual Check-in -->
+<button class="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">login</span>
+                Manual Check-in
+            </button>
+</div>
+<!-- Weekly Progress Tracker -->
+<div class="bg-slate-100 dark:bg-slate-800/50 rounded-2xl p-6 mb-8 border border-slate-200 dark:border-slate-800">
+<h3 class="text-sm font-bold mb-4">This Week</h3>
+<div class="flex justify-between items-center">
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Mon</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Tue</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Wed</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-primary uppercase">Thu</span>
+<div class="size-8 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">timer</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Fri</span>
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Sat</span>
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Sun</span>
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-background-light dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-3">
+<div class="flex items-center justify-around max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 400">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 400">qr_code_2</span>
+<span class="text-[10px] font-medium">Check-in</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 400">fitness_center</span>
+<span class="text-[10px] font-medium">Workouts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 400">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

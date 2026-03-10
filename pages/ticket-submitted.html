@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ticket Submitted Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="flex items-center px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center font-bold text-lg mr-10">Support</h1>
+</header>
+<main class="flex-1 flex flex-col items-center px-6 py-12 max-w-md mx-auto w-full">
+<!-- Success Animation/Icon Area -->
+<div class="relative flex items-center justify-center mb-10">
+<div class="absolute size-32 bg-primary/20 rounded-full animate-pulse"></div>
+<div class="relative size-24 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined text-white text-5xl">check_circle</span>
+</div>
+</div>
+<!-- Success Content -->
+<div class="text-center space-y-4 mb-10">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Ticket Submitted Successfully</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                Thank you for reaching out! Our support team has received your ticket and will get back to you within 24 hours.
+            </p>
+</div>
+<!-- Ticket Reference Card -->
+<div class="w-full bg-slate-100 dark:bg-slate-800/50 rounded-xl p-5 mb-12 border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Ticket Reference Number</span>
+<span class="text-sm font-bold text-primary tracking-wider">#GYM-88291</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full space-y-3 mt-auto">
+<button class="w-full h-14 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">confirmation_number</span>
+                View Ticket Status
+            </button>
+<button class="w-full h-14 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold rounded-xl flex items-center justify-center transition-all">
+                Back to Home
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="sticky bottom-0 w-full border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark px-4 pb-6 pt-2">
+<div class="flex justify-around items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="text-[10px] font-medium">Workouts</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<span class="material-symbols-outlined icon-fill">confirmation_number</span>
+<span class="text-[10px] font-medium">Tickets</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

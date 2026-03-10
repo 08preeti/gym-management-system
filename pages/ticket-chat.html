@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "neutral-800": "#1b2333",
+                        "neutral-700": "#282e39",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Header -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-3xl mx-auto flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center h-10 w-10 rounded-full hover:bg-slate-200 dark:hover:bg-neutral-700 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold tracking-tight">#GYM-88291</h2>
+</div>
+<div class="flex items-center">
+<span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-500 text-xs font-bold tracking-wider uppercase">
+                    Pending
+                </span>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-3xl mx-auto w-full flex flex-col p-4 gap-6">
+<!-- Ticket Summary Card -->
+<div class="w-full">
+<div class="flex flex-col md:flex-row items-stretch gap-4 rounded-xl bg-white dark:bg-neutral-800 p-4 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex flex-col justify-center flex-1">
+<p class="text-xs font-semibold uppercase tracking-widest text-primary mb-1">Subject</p>
+<h1 class="text-xl font-bold leading-tight mb-1">Membership Billing Issue</h1>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-500">label</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Billing &amp; Payments</p>
+</div>
+</div>
+<div class="w-full md:w-32 h-20 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 grayscale brightness-75" data-alt="Modern fitness club interior with equipment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCRz8eLTULGkCbunUipbffFFFxAthz0MV7s8jcB9LWjp5UyGxLr_sftmOcDt15SuOEuknGCCGn5I3Yk1E1QxFf-3T22Pz2gwR40TuRtqGqgkbqE-IfYILMc1ETSzzKDteY8EMQhxrxETq6fNaUSGFD-5gFK0icrjDUMHGVm0nWDs6xyirDzfIgAvWvyuheyiA7zGfCLENjLyEj2pxLl2kUDCykNneQLNn8K7-IKUBV2vv8FirMXT8CDwn9c-9d4BhWx_xlOR9i_j2f");'>
+</div>
+</div>
+</div>
+<!-- Chat History Area -->
+<div class="flex flex-col gap-6 mb-24">
+<div class="flex justify-center">
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-full">Today, 10:45 AM</span>
+</div>
+<!-- User Message (Right) -->
+<div class="flex items-start gap-3 justify-end">
+<div class="flex flex-col gap-1 items-end">
+<p class="text-slate-500 dark:text-slate-400 text-[11px] font-bold uppercase tracking-wider px-1">You</p>
+<div class="max-w-[85%] md:max-w-[70%] rounded-2xl rounded-tr-none px-4 py-3 bg-primary text-white shadow-lg shadow-primary/20">
+<p class="text-sm leading-relaxed">
+                            The billing cycle for next month shows an incorrect amount. I recently upgraded my plan from Basic to Pro, but the invoice still reflects the old rate plus a surcharge.
+                        </p>
+</div>
+<p class="text-[10px] text-slate-500 mt-1">Delivered</p>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10 shrink-0 border-2 border-primary/30" data-alt="User profile portrait smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCc9TCruNJm6tBWXq_uzCHjOCYqkDBNggGTN7kX0Vjlb2hhbKDczPP2fsJ_yaTOlNndb29lksLUKxIWBEgppvrJmEu3-QkTMclrNIz6wdlPAYHhpJwGRbRVqbb3ioFo5dMY6dkUIQzK1cziYw1JfZQ4t8jP4o3SngpWgl6iv7Oxhh3M5OzLbc9DAQCboSjL1mwyc-oLS8bQM2EGV7iIw52OigiolPyCNYeFXEdSZcU4Ip7-EA-6lKAmolrEWOrKvR5luFfPI1-NSb4A");'>
+</div>
+</div>
+<!-- Support Message (Left) -->
+<div class="flex items-start gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10 shrink-0 border-2 border-slate-700" data-alt="Support team member portrait woman" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFX6vxeCweKR3o-mpqiT8jrE6pVh-ZrrRj3V2hMPmaXODKk-DK4uNCE9oIy7zk-9ZxWGfYARs2VgLOxRiNkv1r1HCknXHIl-VjhEMknc1hW0in7j8zwWEgnZY89k1-vy1ANTOZcmDeUAFE03tT5otRhUQb4JnNGzBGdmMNXbbKA7jxyyRaa49pO7DAH_OSw0CpdMurTujopAkrRl8hOXoGFns9WbkbTGnqxAPiJPEvauDyW1uP_6j2lT8OlHA9eHaNu_3b5upzvPBY");'>
+</div>
+<div class="flex flex-col gap-1 items-start">
+<p class="text-slate-500 dark:text-slate-400 text-[11px] font-bold uppercase tracking-wider px-1">Support Team</p>
+<div class="max-w-[85%] md:max-w-[70%] rounded-2xl rounded-tl-none px-4 py-3 bg-white dark:bg-neutral-700 text-slate-900 dark:text-slate-100 shadow-sm border border-slate-200 dark:border-slate-800">
+<p class="text-sm leading-relaxed">
+                            Hello! We are looking into this for you. Could you please confirm which plan you upgraded to? Usually, the system takes 24 hours to sync the billing cycles with the new membership tier.
+                        </p>
+</div>
+<p class="text-[10px] text-slate-500 mt-1">2 mins ago</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Input Area -->
+<footer class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4">
+<div class="max-w-3xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shrink-0 hidden sm:block" data-alt="Small user profile thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4gnC3IufYDKAN9MKaibuVywjNg3hMEjYXh_PZZaF-pL29zcqCxW6VkQk8D-J2fLi4PSNieu_HjCsunwhbC-wiSz1YBQzCgdBgGD8eM1sGG-lnyDwtwSdf2nm5usmojfGEAD1l8-qKlWZENx1_I7mvq08FersVGHLbHm6zAFXF5C8SC7m7cKEj-hwQ6y19DosaWTplsODmTtZqtbBvVbU3hzYbd-i6ONnN1JO9VCC1Q5cmkSkbgrRfFg4lRSorEgwwT9fET2BGjZ41");'>
+</div>
+<div class="flex-1 relative group">
+<div class="flex w-full items-stretch rounded-xl bg-white dark:bg-neutral-700 border border-slate-200 dark:border-slate-800 focus-within:border-primary transition-all overflow-hidden">
+<input class="w-full min-w-0 flex-1 bg-transparent border-none text-slate-900 dark:text-slate-100 focus:ring-0 placeholder:text-slate-400 px-4 py-3 text-sm" placeholder="Type your message..."/>
+<div class="flex items-center gap-2 pr-2">
+<button class="flex items-center justify-center p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">attach_file</span>
+</button>
+<button class="bg-primary text-white p-2 rounded-lg flex items-center justify-center hover:bg-primary/90 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-2 text-center">
+<p class="text-[10px] text-slate-500 font-medium">Typical response time: <span class="text-emerald-500">Under 5 mins</span></p>
+</div>
+</div>
+</footer>
+</body></html>

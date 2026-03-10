@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gym Supplement Store - Shopping Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header / Top Bar -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 border-b border-primary/10">
+<a class="text-slate-900 dark:text-slate-100 flex items-center justify-center p-2 rounded-full hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<h1 class="text-xl font-bold ml-4 flex-1">Your Cart</h1>
+<span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">3 Items</span>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto px-4 py-6 space-y-6 max-w-2xl mx-auto w-full">
+<!-- Cart Items List -->
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl p-4 border border-primary/5 flex flex-col gap-4">
+<div class="flex gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-24 shrink-0" data-alt="Container of Optimum Gold Whey protein powder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgFBrSkcFSZ-JhJKmCD5NpQIWxLKtDQjGz3skqfnCUNH4gS4DJZqtT4n9U77a8dOJ-UYxrTx-al355E25-gni0SBfhSiIff7hNNPlY_3ZJ4lVmtH87gTu9z8oGn6eSPEDWb__FcQF4iFE7phJ0Izo76emo_3UWx0kSy8DWAkxWJfGZJ5e9xMdYTTS97bjgkKEv3XhAA0tpLQJE6i4TVY2sOI6hGq1ROLkXI20pyCmZHdNH6XvDmMJUGn7yY-5f25Pwa328CauVArnh");'></div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">Optimum Gold Whey</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">2kg - Vanilla Ice Cream</p>
+</div>
+<p class="text-primary font-bold text-lg">$64.99</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<button class="flex items-center gap-1 text-slate-400 hover:text-red-500 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">delete</span>
+                        Remove
+                    </button>
+<div class="flex items-center gap-3">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="text-lg font-bold w-4 text-center">1</span>
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl p-4 border border-primary/5 flex flex-col gap-4">
+<div class="flex gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-24 shrink-0" data-alt="C4 Pre-workout supplement container fruit punch" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZSqEZNCRZNknAw-UlOVuSr4WkaeKnQZgD3JktCRdou3lTBzXiR3umYjc4KcJchXD15CkB0MYB2oG5CZXGm8jHdaJCYXtFSbfH9tfGeKpQkQDNLnVDjwGAOh8nAMVfaWuyDTpStAgMHJt9pHMBtiJux4Cxoq2OkE-U5GNLtkB19TPzVwh3y8e1sUmsviMtlfppqcQ_ILmXGp7WJZSr-hqgKVRLUvss-Cl8idci8Fh-LPWXJpOfBRi54sjj0dfW3gbhARxwTZk0PbtV");'></div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">C4 Pre-Workout</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">30 Servings - Fruit Punch</p>
+</div>
+<p class="text-primary font-bold text-lg">$29.99</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<button class="flex items-center gap-1 text-slate-400 hover:text-red-500 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">delete</span>
+                        Remove
+                    </button>
+<div class="flex items-center gap-3">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="text-lg font-bold w-4 text-center">2</span>
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl p-4 border border-primary/5 flex flex-col gap-4">
+<div class="flex gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-24 shrink-0" data-alt="Protein shaker bottle professional series" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcZFrQj0mMfsRIXbRij4hnyqb5ugaCCcCSca_Wuvs7H5WP2H-D43qQajgdobnat0tsZ1TovE1ojXW-w6Q6y14r66R3KK_7sAK8spT7pJknPdrZLRXasYCwrk33Lp17zzupnlMovISSAOqNX3sZ1qX-NMVqsXKRyXQ9r6lR5DR6gG_2t02smRdF5HPQv0uS2EmIgdYoDsShePbeV5yVMFA5U_wzG98UpMTvM-5Jn_YluBQ3tpcexdu5s7ulmmeWq3vmThGxWwFTa7JN");'></div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">Pro Shaker 700ml</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Matte Black - Leak Proof</p>
+</div>
+<p class="text-primary font-bold text-lg">$14.99</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700/50">
+<button class="flex items-center gap-1 text-slate-400 hover:text-red-500 transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-lg">delete</span>
+                        Remove
+                    </button>
+<div class="flex items-center gap-3">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="text-lg font-bold w-4 text-center">1</span>
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Promo Code Section -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl p-4 border border-primary/5">
+<label class="block text-sm font-medium mb-2 text-slate-400">Promo Code</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-slate-100 dark:bg-slate-700 border-none rounded-lg focus:ring-2 focus:ring-primary text-slate-100" placeholder="Enter code" type="text"/>
+<button class="bg-primary/20 text-primary font-bold px-4 py-2 rounded-lg hover:bg-primary/30 transition-colors">Apply</button>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="bg-white dark:bg-slate-800/40 rounded-xl p-6 border border-primary/5 space-y-3">
+<h3 class="text-lg font-bold mb-4">Order Summary</h3>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Subtotal</span>
+<span>$139.96</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Estimated Tax</span>
+<span>$11.20</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Shipping</span>
+<span class="text-green-500 font-medium uppercase text-sm">Free</span>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<span class="text-xl font-bold">Total</span>
+<span class="text-2xl font-bold text-primary">$151.16</span>
+</div>
+</div>
+<div class="h-12"></div>
+</main>
+<!-- Bottom Action Bar / Checkout -->
+<footer class="sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-primary/10 px-4 pt-4 pb-8 flex flex-col gap-4 z-20">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+            Proceed to Checkout
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Bottom Nav -->
+<div class="flex gap-2 bg-transparent">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Store</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Search</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined material-symbols-fill">shopping_cart</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Cart</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Profile</p>
+</a>
+</div>
+</footer>
+</body></html>

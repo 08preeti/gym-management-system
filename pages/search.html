@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Section -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<button class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight flex-1 text-center pr-10">Search Records</h1>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Search Bar Section -->
+<div class="px-4 py-4">
+<div class="flex flex-col w-full h-14">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-slate-400 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-0 placeholder:text-slate-500 px-4 rounded-r-xl text-base font-normal" placeholder="Search members, status, or logs" type="text" value=""/>
+</div>
+</div>
+</div>
+<!-- Recent Searches Section -->
+<section class="mb-6">
+<div class="flex items-center justify-between px-4 pb-3">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-semibold uppercase tracking-wider">Recent Searches</h3>
+<button class="text-primary text-xs font-medium">Clear All</button>
+</div>
+<div class="flex gap-2 px-4 overflow-x-auto no-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-4 border border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium">John Doe</span>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-4 border border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium">Attendance Oct</span>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-100 dark:bg-slate-800 px-4 border border-slate-200 dark:border-slate-700">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium">Premium</span>
+</div>
+</div>
+</section>
+<!-- Suggested Categories Section -->
+<section class="mb-8">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-semibold uppercase tracking-wider px-4 pb-3">Suggested Categories</h3>
+<div class="grid grid-cols-2 gap-3 px-4">
+<div class="flex flex-col items-start p-4 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2">person_search</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Member Profiles</span>
+</div>
+<div class="flex flex-col items-start p-4 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2">assignment_turned_in</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Membership Status</span>
+</div>
+<div class="flex flex-col items-start p-4 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2">history</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Attendance Logs</span>
+</div>
+<div class="flex flex-col items-start p-4 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-2">payments</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Payment Records</span>
+</div>
+</div>
+</section>
+<!-- Search Results Preview -->
+<section>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-semibold uppercase tracking-wider px-4 pb-3">Recommended for you</h3>
+<div class="flex flex-col divide-y divide-slate-100 dark:divide-slate-800 px-4">
+<!-- Result Item 1 -->
+<div class="flex items-center py-4 gap-4">
+<div class="relative">
+<img class="size-14 rounded-full object-cover" data-alt="Male athlete headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC67yGe46V9AptkhTfh3_hAONcqwgkEKGocygJiqiCazfAmOxL9L-wHz-gykotoLCuBdvzPILhMDXAxmsGBCKkzcktdY7ouk9lZ5XU1p9HNvJJzXDBAcUOW4OKmGarAxvJlXT6AZVNzuP_KEIYexJo98H71kMtfHu_Fokbu60mruxJMi7IEIi6yUbeN3uFCv0F4DngxfkcGo_NXEUDjHymkwPmu4rOzZLsKqVbef4sxhS4VkbmgQDr9BXF_2kdab24LyJtOzhrks4ss"/>
+<div class="absolute bottom-0 right-0 size-4 bg-green-500 border-2 border-background-dark rounded-full"></div>
+</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-semibold text-base">Marcus Thompson</h4>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase">Pro Plus</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Last active: 2h ago</p>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Result Item 2 -->
+<div class="flex items-center py-4 gap-4">
+<div class="relative">
+<img class="size-14 rounded-full object-cover" data-alt="Female gym member headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwmin5JoHKQ-w-NtQhA2sMGh2PQD5nuSlzpz8ovhzO3Xta2gMwCPp-br3lYuBiSBjRxpc-XTCIMEux9kqE1WBKxOCEIpSyfGFpSOH2CAAiKh-G_Cp-iV4YLYrad_HZ-Nis8pLnmG5deHeIkY0tpeHVkrWTHfYvC010eRDhLy-YeO1YjLrshk4u5OweLmzqlv02U6fXeKZvQm9rICRbIBqaJDaKeIqgvVy09bus_j5uz8BTGu4mCoDTrAXs8dXze3V2JUziizY3P9Of"/>
+<div class="absolute bottom-0 right-0 size-4 bg-yellow-500 border-2 border-background-dark rounded-full"></div>
+</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-semibold text-base">Elena Rodriguez</h4>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase">Basic</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Last check-in: Oct 24</p>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Result Item 3 -->
+<div class="flex items-center py-4 gap-4">
+<div class="relative">
+<img class="size-14 rounded-full object-cover" data-alt="Man lifting weights headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmUGdp2oZJ6XreOfk1gcSZ3ZrKInXOnPujKfJI5bP-Mu78wuU080tEzVOoPtb8-tPASqI-oLK3gB-H0ZCfeE788AZjpx7ApuHhH8ZN0NCYuobqRCGKyAgH718NPezojVa0R4XVrn1pr73jJYQfHayH1uJDWPbwu0p6hI4qOZxArsLp042rf0GhyamyDPCHFxAP1ksoi-JkZkmOeZMK16IGuTikK6tFXTo_Gm4dp4cPfHCFE164XAwj1xXyjP7h47UOfTK1PcRKfwoZ"/>
+<div class="absolute bottom-0 right-0 size-4 bg-slate-500 border-2 border-background-dark rounded-full"></div>
+</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-slate-100 font-semibold text-base">David Chen</h4>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-[10px] font-bold uppercase">Expired</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Member since 2022</p>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 flex gap-2 border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/95 backdrop-blur-md px-4 pb-6 pt-2 z-20">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined filled-icon text-2xl">home</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">fitness_center</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Workout</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Shop</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">group</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Social</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Profile</p>
+</a>
+</nav>
+</body></html>
