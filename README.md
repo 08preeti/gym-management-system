@@ -1,114 +1,70 @@
-# Gym Management System
+# Getting Started with Create React App
 
-## Project Description
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The Gym Management System is a web application designed to replace paper-based gym payment receipts with digital records. This system helps gym owners manage members, track payments, generate digital receipts, and send notifications about gym schedules or fee reminders. By storing all information digitally, the risk of losing receipts is eliminated.
+## Available Scripts
 
----
+In the project directory, you can run:
 
-## Problem Statement
+### `npm start`
 
-In many gyms, payment receipts are printed on paper. These receipts can easily be lost by members or misplaced by gym owners. Managing notifications about gym working days and fee reminders manually also becomes difficult. This system solves these problems by providing an online application where receipts, member information, and notifications are stored digitally.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Features
+### `npm test`
 
-### Admin
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-* Admin Login
-* Add New Member
-* Update/Delete Members
-* Assign Membership Plan
-* Create Bills
-* Send Notifications
-* Export Reports
-* Manage Supplement Store
-* Add Diet Details
+### `npm run build`
 
-### Members
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-* Member Login
-* View Bill Receipts
-* View Notifications
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Users
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* User Login
-* View Details
-* Search Records
+### `npm run eject`
 
----
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Technologies Used
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-* HTML
-* Tailwind CSS
-* JavaScript
-* Firebase Authentication
-* Firebase Firestore Database
-* Git & GitHub
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
----
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## System Workflow
+## Learn More
 
-1. Admin logs into the system.
-2. Admin adds new gym members.
-3. Membership plans and fee packages are assigned.
-4. Bills are generated and stored digitally.
-5. Members can log in and view their payment receipts.
-6. Notifications are sent to members regarding fee reminders or gym updates.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
----
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Database
+### Code Splitting
 
-The project uses **Firebase Firestore** to store data such as:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-* Members
-* Bills
-* Notifications
-* Supplement Store Data
+### Analyzing the Bundle Size
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Project Structure
+### Making a Progressive Web App
 
-gym-management-system
-│
-├── dashboard.html
-├── login.html
-├── add-member.html
-├── js/
-│   ├── login.js
-│   ├── dashboard.js
-│   └── addMember.js
-├── css/
-│   └── styles.css
-└── README.md
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
----
+### Advanced Configuration
 
-## How to Run the Project
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-1. Download or clone the repository.
-2. Open the project folder.
-3. Open **login.html** in a browser.
-4. Login as admin to manage gym members and billing.
+### Deployment
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-## Future Improvements
+### `npm run build` fails to minify
 
-* Supplement Store Integration
-* Diet Plan Recommendation
-* Personal Training Booking
-* Mobile App Version
-
----
-
-## Author
-
-Preeti Chikkali
-B.Tech Computer Science and Engineering
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
