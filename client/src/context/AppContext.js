@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { membersAPI, billsAPI, notificationsAPI, productsAPI, statsAPI } from '../services/api';
 
-const AppContext = createContext();
+// Named export so UI.js can import it directly for safe optional consumption
+export const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
   // ── State ──────────────────────────────────────────────────────────────────
@@ -203,7 +204,7 @@ export function AppProvider({ children }) {
       await notificationsAPI.markRead(id);
       setNotifications(ns => ns.map(n => n.id === id ? { ...n, read: true } : n));
     } catch (e) {
-      // silent
+      // silent failure is acceptable for mark-read
     }
   };
 
@@ -261,10 +262,13 @@ export function AppProvider({ children }) {
       if (existing) return c.map(x => x.id === item.id ? { ...x, qty: x.qty + 1 } : x);
       return [...c, { ...item, qty: 1 }];
     });
-    addToast(`${item.name.slice(0, 28)}... added to cart`);
+    // Trim long names gracefully instead of hardcoding character count
+    const displayName = item.name.length > 30 ? item.name.slice(0, 30) + '…' : item.name;
+    addToast(`${displayName} added to cart`);
   };
-  const removeFromCart = (id)  => setCart(c => c.filter(x => x.id !== id));
-  const clearCart      = ()    => setCart([]);
+
+  const removeFromCart = (id) => setCart(c => c.filter(x => x.id !== id));
+  const clearCart      = ()   => setCart([]);
 
   // ── Derived values ─────────────────────────────────────────────────────────
   const unreadCount = notifications.filter(n => !n.read).length;

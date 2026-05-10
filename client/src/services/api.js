@@ -1,5 +1,9 @@
-// Base URL - change this if your server runs on a different port
-const BASE_URL = 'http://localhost:5000/api';
+// Uses relative URLs so the "proxy" field in client/package.json forwards
+// /api/* → http://localhost:5000/api/* in development automatically.
+// In production, set REACT_APP_API_URL to your deployed server origin.
+const BASE_URL = process.env.REACT_APP_API_URL
+  ? `${process.env.REACT_APP_API_URL}/api`
+  : '/api';
 
 // ─── HELPER ──────────────────────────────────────────────────────────────────
 async function request(method, endpoint, body = null) {
@@ -9,7 +13,7 @@ async function request(method, endpoint, body = null) {
   };
   if (body) options.body = JSON.stringify(body);
 
-  const res = await fetch(`${BASE_URL}${endpoint}`, options);
+  const res  = await fetch(`${BASE_URL}${endpoint}`, options);
   const data = await res.json();
 
   if (!res.ok) {
@@ -18,10 +22,10 @@ async function request(method, endpoint, body = null) {
   return data;
 }
 
-const get    = (endpoint)        => request('GET',    endpoint);
-const post   = (endpoint, body)  => request('POST',   endpoint, body);
-const put    = (endpoint, body)  => request('PUT',    endpoint, body);
-const del    = (endpoint)        => request('DELETE', endpoint);
+const get  = (endpoint)       => request('GET',    endpoint);
+const post = (endpoint, body) => request('POST',   endpoint, body);
+const put  = (endpoint, body) => request('PUT',    endpoint, body);
+const del  = (endpoint)       => request('DELETE', endpoint);
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // AUTH
@@ -41,15 +45,15 @@ export const statsAPI = {
 // MEMBERS
 // ═══════════════════════════════════════════════════════════════════════════════
 export const membersAPI = {
-  getAll:    (params = {}) => {
+  getAll:  (params = {}) => {
     const query = new URLSearchParams(params).toString();
     return get(`/members${query ? '?' + query : ''}`);
   },
-  getById:   (id)          => get(`/members/${id}`),
-  create:    (data)        => post('/members', data),
-  update:    (id, data)    => put(`/members/${id}`, data),
-  delete:    (id)          => del(`/members/${id}`),
-  checkIn:   (id)          => post(`/members/${id}/checkin`),
+  getById: (id)         => get(`/members/${id}`),
+  create:  (data)       => post('/members', data),
+  update:  (id, data)   => put(`/members/${id}`, data),
+  delete:  (id)         => del(`/members/${id}`),
+  checkIn: (id)         => post(`/members/${id}/checkin`),
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -60,10 +64,10 @@ export const billsAPI = {
     const query = new URLSearchParams(params).toString();
     return get(`/bills${query ? '?' + query : ''}`);
   },
-  getById: (id)          => get(`/bills/${id}`),
-  create:  (data)        => post('/bills', data),
-  update:  (id, data)    => put(`/bills/${id}`, data),
-  delete:  (id)          => del(`/bills/${id}`),
+  getById: (id)         => get(`/bills/${id}`),
+  create:  (data)       => post('/bills', data),
+  update:  (id, data)   => put(`/bills/${id}`, data),
+  delete:  (id)         => del(`/bills/${id}`),
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -85,8 +89,8 @@ export const productsAPI = {
     const query = new URLSearchParams(params).toString();
     return get(`/products${query ? '?' + query : ''}`);
   },
-  getById: (id)          => get(`/products/${id}`),
-  create:  (data)        => post('/products', data),
-  update:  (id, data)    => put(`/products/${id}`, data),
-  delete:  (id)          => del(`/products/${id}`),
+  getById: (id)         => get(`/products/${id}`),
+  create:  (data)       => post('/products', data),
+  update:  (id, data)   => put(`/products/${id}`, data),
+  delete:  (id)         => del(`/products/${id}`),
 };

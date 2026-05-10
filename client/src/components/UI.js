@@ -1,15 +1,17 @@
-import React from 'react';
-import { useApp } from '../context/AppContext';
+import React, { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
 // ── TOAST CONTAINER ──────────────────────────────────────────────────────────
+// Safe to render even outside AppProvider (e.g. on the Login screen).
 export function ToastContainer() {
-  const { toasts } = useApp();
+  const ctx = useContext(AppContext);
+  const toasts = ctx ? ctx.toasts : [];
   return (
     <div className="toast-container">
       {toasts.map(t => (
-        <div key={t.id} className="toast">
-          <span className="material-symbols-outlined" style={{ fontSize: 18, color: 'var(--green)' }}>
-            check_circle
+        <div key={t.id} className={`toast toast-${t.type || 'success'}`}>
+          <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
+            {t.type === 'error' ? 'error' : 'check_circle'}
           </span>
           {t.msg}
         </div>
@@ -23,7 +25,7 @@ export function Icon({ name, size = 20, color, style = {} }) {
   return (
     <span
       className="material-symbols-outlined"
-      style={{ fontSize: size, color, ...style }}
+      style={{ fontSize: size, color, lineHeight: 1, ...style }}
     >
       {name}
     </span>
@@ -45,7 +47,7 @@ export function StatCard({ label, value, sub, icon }) {
 // ── AVATAR ───────────────────────────────────────────────────────────────────
 export function Avatar({ initials, size = 'md', inactive = false }) {
   const cls = `avatar${size === 'sm' ? ' avatar-sm' : size === 'lg' ? ' avatar-lg' : ''}`;
-  const bg = inactive ? 'var(--muted)' : undefined;
+  const bg  = inactive ? 'var(--muted)' : undefined;
   return (
     <div className={cls} style={{ background: bg }}>
       {initials}
@@ -73,7 +75,7 @@ export function FeesBadge({ fees }) {
 
 // ── MINI BAR CHART ───────────────────────────────────────────────────────────
 export function MiniBarChart({ data, valueKey, labelKey }) {
-  const max = Math.max(...data.map(d => d[valueKey]));
+  const max = Math.max(...data.map(d => d[valueKey]), 1);
   return (
     <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 130, padding: '0 4px' }}>
       {data.map(d => (
@@ -101,7 +103,7 @@ export function MiniBarChart({ data, valueKey, labelKey }) {
 export function QRCode({ seed = 1, size = 200 }) {
   const cellSize = Math.floor(size / 12);
   const cells = Array.from({ length: 100 }, (_, i) => {
-    const v = (seed * 17 + i * 37 + i * i * 13) % 256;
+    const v    = (seed * 17 + i * 37 + i * i * 13) % 256;
     const dark = v > 100;
     return (
       <div
@@ -142,7 +144,7 @@ export function Modal({ title, onClose, children, footer }) {
 
 // ── PROGRESS BAR ─────────────────────────────────────────────────────────────
 export function ProgressBar({ value, max, color = 'var(--primary)', height = 6 }) {
-  const pct = Math.min(100, (value / max) * 100);
+  const pct = Math.min(100, (value / Math.max(max, 1)) * 100);
   return (
     <div style={{ height, background: 'var(--border)', borderRadius: 3 }}>
       <div style={{ height: '100%', width: `${pct}%`, background: color, borderRadius: 3, transition: 'width 0.3s' }} />
