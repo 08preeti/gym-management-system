@@ -97,4 +97,4 @@ export default function Cart({ onNavigate }) {
       </div>
     </div>
   );
-}
+}//lets check this
