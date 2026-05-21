@@ -26,7 +26,7 @@ export default function ManageMembers({ onNavigate, onEditMember }) {
         </button>
       </div>
 
-      {/* FILTERS */}
+     
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="card-body" style={{ paddingBottom: 14 }}>
           <div className="search-wrap" style={{ marginBottom: 12 }}>
@@ -46,7 +46,7 @@ export default function ManageMembers({ onNavigate, onEditMember }) {
         </div>
       </div>
 
-      {/* TABLE */}
+     
       <div className="card">
         {filtered.length === 0 ? (
           <EmptyState icon="manage_search" title="No members found" description="Try adjusting your search or filter." />

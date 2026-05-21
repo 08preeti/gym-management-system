@@ -42,7 +42,7 @@ export default function Feedback() {
       </div>
 
       <div className="grid-2">
-        {/* SUBMIT FEEDBACK */}
+
         <div className="card">
           <div className="card-header"><span className="card-title">Submit Feedback</span></div>
           <div className="card-body">
@@ -77,7 +77,6 @@ export default function Feedback() {
           </div>
         </div>
 
-        {/* FEEDBACK LIST */}
         <div>
           {feedbacks.map(fb => (
             <div key={fb.id} className="card" style={{ marginBottom: 14 }}>
@@ -99,3 +98,6 @@ export default function Feedback() {
     </div>
   );
 }
+
+
+//this is feedback

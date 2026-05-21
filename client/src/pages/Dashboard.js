@@ -23,7 +23,7 @@ export default function Dashboard({ onNavigate }) {
         </span>
       </div>
 
-      {/* STAT CARDS */}
+     
       <div className="stats-grid">
         {[
           { label: 'Total Members',     value: loading.stats ? '—' : s.totalMembers,   sub: 'Registered',         icon: '👥' },
@@ -40,7 +40,7 @@ export default function Dashboard({ onNavigate }) {
         ))}
       </div>
 
-      {/* CHARTS */}
+      
       <div className="grid-2">
         <div className="card">
           <div className="card-header"><span className="card-title">Weekly Attendance</span><span className="tag">This Week</span></div>
@@ -76,7 +76,7 @@ export default function Dashboard({ onNavigate }) {
         </div>
       </div>
 
-      {/* RECENT MEMBERS */}
+      
       <div className="card">
         <div className="card-header">
           <span className="card-title">Recent Members</span>

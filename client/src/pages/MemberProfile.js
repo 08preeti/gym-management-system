@@ -28,7 +28,7 @@ export default function MemberProfile({ member, onBack }) {
         )}
       </div>
 
-      {/* HEADER CARD */}
+     
       <div className="card" style={{ marginBottom: 20, padding: 24, display: 'flex', gap: 20, alignItems: 'center' }}>
         <Avatar initials={member.initials} size="lg" inactive={member.status === 'Inactive'} />
         <div style={{ flex: 1 }}>
@@ -47,7 +47,7 @@ export default function MemberProfile({ member, onBack }) {
         </div>
       </div>
 
-      {/* STAT CARDS */}
+      
       <div className="grid-3" style={{ marginBottom: 20 }}>
         {[
           { label: 'Total Workouts', value: member.workouts, color: 'var(--text)' },
@@ -62,7 +62,7 @@ export default function MemberProfile({ member, onBack }) {
       </div>
 
       <div className="grid-2">
-        {/* DETAILS */}
+      
         <div className="card">
           <div className="card-header"><span className="card-title">Personal Details</span></div>
           <div className="card-body">
@@ -84,7 +84,7 @@ export default function MemberProfile({ member, onBack }) {
           </div>
         </div>
 
-        {/* MEMBERSHIP + QR */}
+        
         <div>
           <div className="card" style={{ marginBottom: 16 }}>
             <div className="card-header"><span className="card-title">Membership Details</span></div>

@@ -7,12 +7,13 @@ const EMOJI_OPTIONS = ['🥛','⚡','💊','💪','🔬','🧴','🐟','🍫','�
 
 const BLANK_FORM = {
   name: '', category: 'Protein', price: '', stock: '',
-  emoji: '🥛', image: null,   // image = base64 string or null
-  description: '', imageMode: 'emoji',  // 'emoji' | 'upload'
+  emoji: '🥛', image: null,   
+  description: '', imageMode: 'emoji',  
 };
 
 
-export default function SupplementStore({ onNavigate }) {
+export default function SupplementStore({ onNavigate, role = 'Admin' }) {
+  const isAdmin = role === 'Admin';
   const { products, addToCart, addProduct, updateProduct, deleteProduct } = useApp();
 
   const [category, setCategory]           = useState('All');
@@ -107,10 +108,10 @@ export default function SupplementStore({ onNavigate }) {
   const lowStockCount = products.filter(p => p.stock <= 5).length;
   const totalStockVal = products.reduce((s, p) => s + p.price * p.stock, 0);
 
-  // ─────────────────────────────────────────────────────────────────────────
+  
   return (
     <div>
-      {/* PAGE HEADER */}
+     
       <div className="page-header">
         <div>
           <h2 className="page-title">Supplement Store</h2>
@@ -137,7 +138,7 @@ export default function SupplementStore({ onNavigate }) {
         </div>
       </div>
 
-      {/* STATS */}
+      
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 14, marginBottom: 20 }}>
         {[
           { label: 'Total Products',  value: totalProducts,                   icon: '📦', color: 'var(--primary)' },
@@ -152,7 +153,7 @@ export default function SupplementStore({ onNavigate }) {
         ))}
       </div>
 
-      {/* SEARCH + FILTERS */}
+     
       <div style={{ display: 'flex', gap: 12, marginBottom: 20, flexWrap: 'wrap', alignItems: 'center' }}>
         <div className="search-wrap" style={{ flex: 1, minWidth: 200 }}>
           <span className="material-symbols-outlined search-icon">search</span>
@@ -165,7 +166,7 @@ export default function SupplementStore({ onNavigate }) {
         </div>
       </div>
 
-      {/* GRID VIEW */}
+      
       {viewMode === 'grid' && (
         <div className="grid-4">
           {filtered.map(s => (
@@ -190,12 +191,16 @@ export default function SupplementStore({ onNavigate }) {
                   <button className="btn btn-primary btn-sm" style={{ flex: 1, justifyContent: 'center' }} onClick={() => addToCart(s)}>
                     <Icon name="add_shopping_cart" size={13} /> Cart
                   </button>
-                  <button className="btn btn-ghost btn-sm btn-icon" title="Edit" onClick={() => openEdit(s)}>
-                    <Icon name="edit" size={14} />
-                  </button>
-                  <button className="btn btn-danger btn-sm btn-icon" title="Delete" onClick={() => setConfirmDelete(s)}>
-                    <Icon name="delete" size={14} />
-                  </button>
+                  {isAdmin && (
+                    <>
+                      <button className="btn btn-ghost btn-sm btn-icon" title="Edit" onClick={() => openEdit(s)}>
+                        <Icon name="edit" size={14} />
+                      </button>
+                      <button className="btn btn-danger btn-sm btn-icon" title="Delete" onClick={() => setConfirmDelete(s)}>
+                        <Icon name="delete" size={14} />
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -203,7 +208,7 @@ export default function SupplementStore({ onNavigate }) {
         </div>
       )}
 
-      {/* TABLE VIEW */}
+      
       {viewMode === 'table' && (
         <div className="card">
           <div className="table-wrap">
@@ -238,8 +243,12 @@ export default function SupplementStore({ onNavigate }) {
                     <td>
                       <div style={{ display: 'flex', gap: 6 }}>
                         <button className="btn btn-primary btn-sm" onClick={() => addToCart(s)}><Icon name="add_shopping_cart" size={13} /> Add</button>
-                        <button className="btn btn-ghost btn-sm btn-icon" onClick={() => openEdit(s)}><Icon name="edit" size={14} /></button>
-                        <button className="btn btn-danger btn-sm btn-icon" onClick={() => setConfirmDelete(s)}><Icon name="delete" size={14} /></button>
+                        {isAdmin && (
+                          <>
+                            <button className="btn btn-ghost btn-sm btn-icon" onClick={() => openEdit(s)}><Icon name="edit" size={14} /></button>
+                            <button className="btn btn-danger btn-sm btn-icon" onClick={() => setConfirmDelete(s)}><Icon name="delete" size={14} /></button>
+                          </>
+                        )}
                       </div>
                     </td>
                   </tr>
@@ -261,7 +270,7 @@ export default function SupplementStore({ onNavigate }) {
         </div>
       )}
 
-      {/* ── ADD / EDIT MODAL ─────────────────────────────────────────── */}
+      
       {showModal && (
         <Modal
           title={editProduct ? 'Edit Product' : 'Add New Product'}
@@ -277,11 +286,11 @@ export default function SupplementStore({ onNavigate }) {
           }
         >
 
-          {/* ── IMAGE / ICON TABS ── */}
+          
           <div className="form-group">
             <label className="form-label">Product Image</label>
 
-            {/* Tab switcher */}
+           
             <div style={{ display: 'flex', background: 'var(--surface)', borderRadius: 10, padding: 4, marginBottom: 12, border: '1px solid var(--border)' }}>
               {[
                 { key: 'upload', icon: 'upload',      label: 'Upload Image' },
@@ -306,10 +315,10 @@ export default function SupplementStore({ onNavigate }) {
               ))}
             </div>
 
-            {/* ── UPLOAD TAB ── */}
+           
             {form.imageMode === 'upload' && (
               <div>
-                {/* Hidden file input */}
+              
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -326,7 +335,7 @@ export default function SupplementStore({ onNavigate }) {
                       alt="Product preview"
                       style={{ width: '100%', height: 180, objectFit: 'cover', display: 'block' }}
                     />
-                    {/* Overlay actions */}
+                   
                     <div style={{
                       position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.45)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
@@ -393,7 +402,7 @@ export default function SupplementStore({ onNavigate }) {
               </div>
             )}
 
-            {/* ── EMOJI TAB ── */}
+            
             {form.imageMode === 'emoji' && (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {EMOJI_OPTIONS.map(e => (
@@ -415,13 +424,13 @@ export default function SupplementStore({ onNavigate }) {
             )}
           </div>
 
-          {/* NAME */}
+          
           <div className="form-group">
             <label className="form-label">Product Name *</label>
             <input className="form-input" placeholder="e.g. Whey Protein 2kg" value={form.name} onChange={e => set('name', e.target.value)} />
           </div>
 
-          {/* CATEGORY + PRICE */}
+          
           <div className="form-grid">
             <div className="form-group">
               <label className="form-label">Category *</label>
@@ -435,19 +444,19 @@ export default function SupplementStore({ onNavigate }) {
             </div>
           </div>
 
-          {/* STOCK */}
+          
           <div className="form-group">
             <label className="form-label">Stock Quantity *</label>
             <input className="form-input" type="number" min="0" placeholder="e.g. 50" value={form.stock} onChange={e => set('stock', e.target.value)} />
           </div>
 
-          {/* DESCRIPTION */}
+         
           <div className="form-group">
             <label className="form-label">Description (optional)</label>
             <textarea className="form-input" rows={3} placeholder="Brief product description..." value={form.description} onChange={e => set('description', e.target.value)} style={{ resize: 'vertical' }} />
           </div>
 
-          {/* LIVE PREVIEW */}
+         
           {form.name && (
             <div>
               <label className="form-label" style={{ marginBottom: 8, display: 'block' }}>Preview</label>
@@ -469,7 +478,7 @@ export default function SupplementStore({ onNavigate }) {
         </Modal>
       )}
 
-      {/* ── CONFIRM DELETE MODAL ── */}
+     
       {confirmDelete && (
         <Modal
           title="Delete Product"

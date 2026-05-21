@@ -38,7 +38,7 @@ export default function EditProfile() {
         </div>
       </div>
 
-      {/* ADMIN PROFILE */}
+
       <div className="card" style={{ marginBottom: 20 }}>
         <div className="card-header"><span className="card-title">Admin Information</span></div>
         <div className="card-body">
@@ -74,7 +74,7 @@ export default function EditProfile() {
         </div>
       </div>
 
-      {/* GYM SETTINGS */}
+
       <div className="card" style={{ marginBottom: 20 }}>
         <div className="card-header"><span className="card-title">Gym Settings</span></div>
         <div className="card-body">
@@ -108,7 +108,7 @@ export default function EditProfile() {
         </div>
       </div>
 
-      {/* CHANGE PASSWORD */}
+      
       <div className="card">
         <div className="card-header"><span className="card-title">Change Password</span></div>
         <div className="card-body">

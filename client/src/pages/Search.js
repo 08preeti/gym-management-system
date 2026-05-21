@@ -24,7 +24,7 @@ export default function Search({ onNavigate, onSelectMember }) {
         </div>
       </div>
 
-      {/* SEARCH BOX */}
+      
       <div style={{ position: 'relative', marginBottom: 24 }}>
         <span className="material-symbols-outlined" style={{ position: 'absolute', left: 18, top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)', fontSize: 22, pointerEvents: 'none' }}>search</span>
         <input
@@ -45,7 +45,7 @@ export default function Search({ onNavigate, onSelectMember }) {
         )}
       </div>
 
-      {/* RESULTS */}
+    
       {query.trim().length > 1 && (
         <div>
           <div style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 14 }}>
@@ -84,7 +84,7 @@ export default function Search({ onNavigate, onSelectMember }) {
         </div>
       )}
 
-      {/* EMPTY PROMPT */}
+     
       {query.trim().length <= 1 && (
         <div style={{ textAlign: 'center', padding: '80px 24px', color: 'var(--muted)' }}>
           <span className="material-symbols-outlined" style={{ fontSize: 72, opacity: 0.15, display: 'block', margin: '0 auto 16px' }}>manage_search</span>

@@ -40,9 +40,9 @@ export default function CreateBill() {
       </div>
 
       <div className="grid-2">
-        {/* LEFT: MEMBER + ITEMS */}
+        
         <div>
-          {/* MEMBER SEARCH */}
+        
           <div className="card" style={{ marginBottom: 16 }}>
             <div className="card-header"><span className="card-title">Member Information</span></div>
             <div className="card-body">
@@ -91,7 +91,7 @@ export default function CreateBill() {
             </div>
           </div>
 
-          {/* BILL ITEMS */}
+         
           <div className="card">
             <div className="card-header">
               <span className="card-title">Bill Items</span>
@@ -127,7 +127,7 @@ export default function CreateBill() {
           </div>
         </div>
 
-        {/* RIGHT: PREVIEW */}
+      
         <div className="card">
           <div className="card-header"><span className="card-title">Invoice Preview</span></div>
           <div className="card-body">
@@ -193,7 +193,7 @@ export default function CreateBill() {
         </div>
       </div>
 
-      {/* RECENT BILLS */}
+    
       {bills.length > 0 && (
         <div className="card" style={{ marginTop: 24 }}>
           <div className="card-header"><span className="card-title">Recent Bills</span></div>

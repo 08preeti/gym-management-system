@@ -45,7 +45,7 @@ export default function Cart({ onNavigate }) {
       </div>
 
       <div className="grid-2" style={{ alignItems: 'start' }}>
-        {/* CART ITEMS */}
+    
         <div>
           {cart.map(item => (
             <div key={item.id} style={{ display: 'flex', gap: 14, padding: 16, background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 14, marginBottom: 12, alignItems: 'center' }}>
@@ -71,7 +71,7 @@ export default function Cart({ onNavigate }) {
           ))}
         </div>
 
-        {/* ORDER SUMMARY */}
+        
         <div className="card">
           <div className="card-header"><span className="card-title">Order Summary</span></div>
           <div className="card-body">

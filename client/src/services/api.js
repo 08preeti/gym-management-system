@@ -5,7 +5,6 @@ const BASE_URL = process.env.REACT_APP_API_URL
   ? `${process.env.REACT_APP_API_URL}/api`
   : '/api';
 
-// ─── HELPER ──────────────────────────────────────────────────────────────────
 async function request(method, endpoint, body = null) {
   const options = {
     method,
@@ -27,23 +26,17 @@ const post = (endpoint, body) => request('POST',   endpoint, body);
 const put  = (endpoint, body) => request('PUT',    endpoint, body);
 const del  = (endpoint)       => request('DELETE', endpoint);
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// AUTH
-// ═══════════════════════════════════════════════════════════════════════════════
+
 export const authAPI = {
   login: (email, password, role) => post('/auth/login', { email, password, role }),
 };
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// STATS
-// ═══════════════════════════════════════════════════════════════════════════════
+
 export const statsAPI = {
   getDashboard: () => get('/stats'),
 };
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MEMBERS
-// ═══════════════════════════════════════════════════════════════════════════════
+
 export const membersAPI = {
   getAll:  (params = {}) => {
     const query = new URLSearchParams(params).toString();
@@ -56,9 +49,7 @@ export const membersAPI = {
   checkIn: (id)         => post(`/members/${id}/checkin`),
 };
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// BILLS
-// ═══════════════════════════════════════════════════════════════════════════════
+
 export const billsAPI = {
   getAll:  (params = {}) => {
     const query = new URLSearchParams(params).toString();
@@ -70,9 +61,7 @@ export const billsAPI = {
   delete:  (id)         => del(`/bills/${id}`),
 };
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// NOTIFICATIONS
-// ═══════════════════════════════════════════════════════════════════════════════
+
 export const notificationsAPI = {
   getAll:      ()     => get('/notifications'),
   send:        (data) => post('/notifications', data),
@@ -81,9 +70,7 @@ export const notificationsAPI = {
   delete:      (id)   => del(`/notifications/${id}`),
 };
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// PRODUCTS
-// ═══════════════════════════════════════════════════════════════════════════════
+
 export const productsAPI = {
   getAll:  (params = {}) => {
     const query = new URLSearchParams(params).toString();

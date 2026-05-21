@@ -28,7 +28,7 @@ export default function ContactSupport() {
       </div>
 
       <div className="grid-2">
-        {/* TICKET FORM */}
+        
         <div className="card">
           <div className="card-header"><span className="card-title">Submit a Support Ticket</span></div>
           <div className="card-body">
@@ -67,7 +67,7 @@ export default function ContactSupport() {
           </div>
         </div>
 
-        {/* CONTACT INFO */}
+        
         <div>
           {[
             { icon: '📧', label: 'Email Support', value: 'support@gympro.com', sub: 'Response within 24 hours' },

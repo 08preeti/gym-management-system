@@ -10,7 +10,6 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));  // large limit for base64 images
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// ─── IN-MEMORY DATABASE ──────────────────────────────────────────────────────
 let members = [
   { id: '1', name: 'Sarah Jenkins',   email: 'sarah@email.com',   phone: '+1 555-0101', dob: '1995-06-14', gender: 'Female', plan: 'Premium', fee: 'Monthly - $49.99',  emergency: 'Tom Jenkins +1 555-0202',   start: '2024-01-15', status: 'Active',   fees: 'Paid', workouts: 142, streak: 7,  initials: 'SJ', weight: '62kg', height: '165cm', goal: 'Weight Loss' },
   { id: '2', name: 'Alex Johnson',    email: 'alex@email.com',    phone: '+1 555-0103', dob: '1990-03-22', gender: 'Male',   plan: 'VIP',     fee: 'Annual - $450.00',   emergency: 'Mary Johnson +1 555-0104',  start: '2023-01-10', status: 'Active',   fees: 'Paid', workouts: 298, streak: 14, initials: 'AJ', weight: '80kg', height: '178cm', goal: 'Muscle Gain' },
@@ -45,7 +44,7 @@ let products = [
   { id: '8', name: 'Mass Gainer Chocolate 5kg',        category: 'Protein',      price: 64.99, stock: 9,  rating: 4.3, emoji: '🍫', image: null, description: 'High-calorie mass building formula'  },
 ];
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
+
 const gymId  = (id) => `GYM-${String(id).padStart(5, '0')}`;
 const billNum = () => `BILL-${String(bills.length + 1).padStart(3, '0')}`;
 const today  = () => new Date().toISOString().slice(0, 10);
@@ -53,16 +52,11 @@ const today  = () => new Date().toISOString().slice(0, 10);
 const makeInitials = (name) =>
   name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
 
-// ─── HEALTH CHECK ─────────────────────────────────────────────────────────────
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'GymPro API is running', timestamp: new Date() });
 });
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MEMBERS  /api/members
-// ═══════════════════════════════════════════════════════════════════════════════
-
-// GET all members (with optional search & filter)
 app.get('/api/members', (req, res) => {
   const { search, status, plan } = req.query;
   let result = [...members];
@@ -131,11 +125,6 @@ app.post('/api/members/:id/checkin', (req, res) => {
   res.json({ success: true, message: `${member.name} checked in!`, data: member });
 });
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// BILLS  /api/bills
-// ═══════════════════════════════════════════════════════════════════════════════
-
-// GET all bills
 app.get('/api/bills', (req, res) => {
   const { status } = req.query;
   let result = [...bills];
@@ -177,11 +166,7 @@ app.delete('/api/bills/:id', (req, res) => {
   res.json({ success: true, message: 'Bill deleted', data: deleted });
 });
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// NOTIFICATIONS  /api/notifications
-// ═══════════════════════════════════════════════════════════════════════════════
 
-// GET all notifications
 app.get('/api/notifications', (req, res) => {
   res.json({ success: true, count: notifications.length, unread: notifications.filter(n => !n.read).length, data: notifications });
 });
@@ -218,11 +203,7 @@ app.delete('/api/notifications/:id', (req, res) => {
   res.json({ success: true, message: 'Notification deleted' });
 });
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// PRODUCTS  /api/products
-// ═══════════════════════════════════════════════════════════════════════════════
 
-// GET all products
 app.get('/api/products', (req, res) => {
   const { category, search } = req.query;
   let result = [...products];
@@ -272,9 +253,7 @@ app.delete('/api/products/:id', (req, res) => {
   res.json({ success: true, message: 'Product deleted', data: deleted });
 });
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// DASHBOARD STATS  /api/stats
-// ═══════════════════════════════════════════════════════════════════════════════
+
 app.get('/api/stats', (req, res) => {
   const activeMembers  = members.filter(m => m.status === 'Active').length;
   const pendingFees    = members.filter(m => m.fees === 'Due').length;
@@ -301,9 +280,7 @@ app.get('/api/stats', (req, res) => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// AUTH  /api/auth
-// ═══════════════════════════════════════════════════════════════════════════════
+
 app.post('/api/auth/login', (req, res) => {
   const { email, password, role } = req.body;
   if (!email || !password) return res.status(400).json({ success: false, message: 'Email and password required' });
@@ -320,7 +297,7 @@ app.post('/api/auth/login', (req, res) => {
   });
 });
 
-// ─── START SERVER ─────────────────────────────────────────────────────────────
+
 app.listen(PORT, () => {
   console.log(`✅ GymPro API Server running at http://localhost:${PORT}`);
   console.log(`📋 Endpoints:`);

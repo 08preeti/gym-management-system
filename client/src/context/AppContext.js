@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { membersAPI, billsAPI, notificationsAPI, productsAPI, statsAPI } from '../services/api';
 
-// Named export so UI.js can import it directly for safe optional consumption
+
 export const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
-  // ── State ──────────────────────────────────────────────────────────────────
+
   const [members,       setMembers]       = useState([]);
   const [bills,         setBills]         = useState([]);
   const [notifications, setNotifications] = useState([]);
@@ -18,7 +18,7 @@ export function AppProvider({ children }) {
   });
   const [errors, setErrors] = useState({});
 
-  // ── Toast helper ───────────────────────────────────────────────────────────
+  
   const addToast = useCallback((msg, type = 'success') => {
     const id = Date.now();
     setToasts(t => [...t, { id, msg, type }]);
@@ -28,7 +28,7 @@ export function AppProvider({ children }) {
   const setLoad = (key, val) => setLoading(l => ({ ...l, [key]: val }));
   const setErr  = (key, val) => setErrors(e => ({ ...e, [key]: val }));
 
-  // ── FETCH HELPERS ──────────────────────────────────────────────────────────
+  
   const fetchMembers = useCallback(async (params = {}) => {
     setLoad('members', true);
     try {
@@ -91,7 +91,7 @@ export function AppProvider({ children }) {
     }
   }, [addToast]);
 
-  // ── Load everything on mount ────────────────────────────────────────────────
+  
   useEffect(() => {
     fetchMembers();
     fetchBills();
@@ -100,9 +100,7 @@ export function AppProvider({ children }) {
     fetchStats();
   }, [fetchMembers, fetchBills, fetchNotifications, fetchProducts, fetchStats]);
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // MEMBER ACTIONS
-  // ═══════════════════════════════════════════════════════════════════════════
+  
   const addMember = async (data) => {
     try {
       const res = await membersAPI.create(data);
@@ -150,9 +148,7 @@ export function AppProvider({ children }) {
     }
   };
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // BILL ACTIONS
-  // ═══════════════════════════════════════════════════════════════════════════
+  
   const addBill = async (data) => {
     try {
       const res = await billsAPI.create(data);
@@ -186,9 +182,7 @@ export function AppProvider({ children }) {
     }
   };
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // NOTIFICATION ACTIONS
-  // ═══════════════════════════════════════════════════════════════════════════
+  
   const sendNotification = async (data) => {
     try {
       const res = await notificationsAPI.send(data);
@@ -204,7 +198,7 @@ export function AppProvider({ children }) {
       await notificationsAPI.markRead(id);
       setNotifications(ns => ns.map(n => n.id === id ? { ...n, read: true } : n));
     } catch (e) {
-      // silent failure is acceptable for mark-read
+      
     }
   };
 
@@ -218,9 +212,7 @@ export function AppProvider({ children }) {
     }
   };
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // PRODUCT ACTIONS
-  // ═══════════════════════════════════════════════════════════════════════════
+ 
   const addProduct = async (data) => {
     try {
       const res = await productsAPI.create(data);
@@ -253,16 +245,13 @@ export function AppProvider({ children }) {
     }
   };
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // CART ACTIONS (local state only)
-  // ═══════════════════════════════════════════════════════════════════════════
   const addToCart = (item) => {
     setCart(c => {
       const existing = c.find(x => x.id === item.id);
       if (existing) return c.map(x => x.id === item.id ? { ...x, qty: x.qty + 1 } : x);
       return [...c, { ...item, qty: 1 }];
     });
-    // Trim long names gracefully instead of hardcoding character count
+    
     const displayName = item.name.length > 30 ? item.name.slice(0, 30) + '…' : item.name;
     addToast(`${displayName} added to cart`);
   };
@@ -270,7 +259,7 @@ export function AppProvider({ children }) {
   const removeFromCart = (id) => setCart(c => c.filter(x => x.id !== id));
   const clearCart      = ()   => setCart([]);
 
-  // ── Derived values ─────────────────────────────────────────────────────────
+
   const unreadCount = notifications.filter(n => !n.read).length;
   const cartTotal   = cart.reduce((s, i) => s + i.price * i.qty, 0);
 

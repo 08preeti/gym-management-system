@@ -45,7 +45,7 @@ export default function AddMember({ onNavigate, editData, onCancelEdit }) {
       </div>
 
       <form onSubmit={handleSubmit}>
-        {/* PERSONAL INFO */}
+       
         <div className="card" style={{ marginBottom: 16 }}>
           <div className="card-header">
             <span className="card-title">Personal Information</span>
@@ -88,7 +88,7 @@ export default function AddMember({ onNavigate, editData, onCancelEdit }) {
           </div>
         </div>
 
-        {/* CONTACT INFO */}
+       
         <div className="card" style={{ marginBottom: 16 }}>
           <div className="card-header">
             <span className="card-title">Contact Information</span>
@@ -111,7 +111,6 @@ export default function AddMember({ onNavigate, editData, onCancelEdit }) {
           </div>
         </div>
 
-        {/* MEMBERSHIP */}
         <div className="card" style={{ marginBottom: 20 }}>
           <div className="card-header">
             <span className="card-title">Membership Details</span>

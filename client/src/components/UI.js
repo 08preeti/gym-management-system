@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
-// ── TOAST CONTAINER ──────────────────────────────────────────────────────────
-// Safe to render even outside AppProvider (e.g. on the Login screen).
+
 export function ToastContainer() {
   const ctx = useContext(AppContext);
   const toasts = ctx ? ctx.toasts : [];
@@ -20,7 +19,7 @@ export function ToastContainer() {
   );
 }
 
-// ── ICON ─────────────────────────────────────────────────────────────────────
+
 export function Icon({ name, size = 20, color, style = {} }) {
   return (
     <span
@@ -32,7 +31,6 @@ export function Icon({ name, size = 20, color, style = {} }) {
   );
 }
 
-// ── STAT CARD ─────────────────────────────────────────────────────────────────
 export function StatCard({ label, value, sub, icon }) {
   return (
     <div className="stat-card">
@@ -44,7 +42,7 @@ export function StatCard({ label, value, sub, icon }) {
   );
 }
 
-// ── AVATAR ───────────────────────────────────────────────────────────────────
+
 export function Avatar({ initials, size = 'md', inactive = false }) {
   const cls = `avatar${size === 'sm' ? ' avatar-sm' : size === 'lg' ? ' avatar-lg' : ''}`;
   const bg  = inactive ? 'var(--muted)' : undefined;
@@ -55,7 +53,6 @@ export function Avatar({ initials, size = 'md', inactive = false }) {
   );
 }
 
-// ── BADGE ────────────────────────────────────────────────────────────────────
 export function Badge({ children, variant = 'blue' }) {
   return <span className={`badge badge-${variant}`}>{children}</span>;
 }
@@ -73,7 +70,6 @@ export function FeesBadge({ fees }) {
   return <Badge variant={fees === 'Paid' ? 'green' : 'yellow'}>{fees}</Badge>;
 }
 
-// ── MINI BAR CHART ───────────────────────────────────────────────────────────
 export function MiniBarChart({ data, valueKey, labelKey }) {
   const max = Math.max(...data.map(d => d[valueKey]), 1);
   return (
@@ -99,7 +95,7 @@ export function MiniBarChart({ data, valueKey, labelKey }) {
   );
 }
 
-// ── QR CODE (CSS) ─────────────────────────────────────────────────────────────
+
 export function QRCode({ seed = 1, size = 200 }) {
   const cellSize = Math.floor(size / 12);
   const cells = Array.from({ length: 100 }, (_, i) => {
@@ -124,7 +120,6 @@ export function QRCode({ seed = 1, size = 200 }) {
   );
 }
 
-// ── MODAL ────────────────────────────────────────────────────────────────────
 export function Modal({ title, onClose, children, footer }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -142,7 +137,6 @@ export function Modal({ title, onClose, children, footer }) {
   );
 }
 
-// ── PROGRESS BAR ─────────────────────────────────────────────────────────────
 export function ProgressBar({ value, max, color = 'var(--primary)', height = 6 }) {
   const pct = Math.min(100, (value / Math.max(max, 1)) * 100);
   return (
@@ -152,7 +146,6 @@ export function ProgressBar({ value, max, color = 'var(--primary)', height = 6 }
   );
 }
 
-// ── EMPTY STATE ───────────────────────────────────────────────────────────────
 export function EmptyState({ icon, title, description }) {
   return (
     <div className="empty-state">

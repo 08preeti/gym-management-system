@@ -43,7 +43,7 @@ export default function WorkoutTracker() {
         </div>
       </div>
 
-      {/* PROGRESS */}
+      
       <div className="card" style={{ marginBottom: 20 }}>
         <div className="card-body">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
@@ -72,7 +72,7 @@ export default function WorkoutTracker() {
         </div>
       </div>
 
-      {/* EXERCISES */}
+     
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         {EXERCISES.map(ex => {
           const done = completed.includes(ex.id);

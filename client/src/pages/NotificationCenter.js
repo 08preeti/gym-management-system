@@ -9,12 +9,13 @@ const TYPE_CONFIG = {
   success:{ icon:'✅', bg:'rgba(34,197,94,0.15)'    },
 };
 
-export default function NotificationCenter() {
+export default function NotificationCenter({ role = 'Admin' }) {
   const { notifications, markNotifRead, markAllRead, sendNotification, loading } = useApp();
   const [showModal, setShowModal] = useState(false);
   const [sending,   setSending]   = useState(false);
   const [form, setForm] = useState({ title:'', message:'', type:'info' });
-  const unread = notifications.filter(n => !n.read).length;
+  const unread  = notifications.filter(n => !n.read).length;
+  const isAdmin = role === 'Admin';
 
   const handleSend = async () => {
     if (!form.title.trim() || !form.message.trim()) return;
@@ -29,43 +30,46 @@ export default function NotificationCenter() {
     <div>
       <div className="page-header">
         <div><h2 className="page-title">Notification Center</h2><p className="page-subtitle">{unread} unread notification{unread!==1?'s':''}</p></div>
-        <div style={{ display:'flex',gap:10 }}>
-          {unread>0 && <button className="btn btn-ghost" onClick={markAllRead}><Icon name="done_all" size={16}/>Mark All Read</button>}
-          <button className="btn btn-primary" onClick={() => setShowModal(true)}><Icon name="send" size={16}/>Send Notification</button>
+        <div style={{ display:'flex', gap:10 }}>
+          {unread > 0 && <button className="btn btn-ghost" onClick={markAllRead}><Icon name="done_all" size={16}/> Mark All Read</button>}
+          {isAdmin && <button className="btn btn-primary" onClick={() => setShowModal(true)}><Icon name="send" size={16}/> Send Notification</button>}
         </div>
       </div>
       <div className="card">
-        <div className="card-body" style={{ display:'flex',flexDirection:'column',gap:4 }}>
+        <div className="card-body" style={{ display:'flex', flexDirection:'column', gap:4 }}>
           {loading.notifications
             ? <div className="loading-overlay"><div className="spinner-lg"/><span>Loading...</span></div>
             : notifications.map(n => {
                 const cfg = TYPE_CONFIG[n.type] || TYPE_CONFIG.info;
                 return (
                   <div key={n.id} onClick={() => markNotifRead(n.id)}
-                    style={{ display:'flex',gap:14,padding:14,borderRadius:12,cursor:'pointer',transition:'all 0.15s',background:!n.read?'var(--primary-glow)':'',borderLeft:!n.read?'3px solid var(--primary)':'3px solid transparent' }}
+                    style={{ display:'flex', gap:14, padding:14, borderRadius:12, cursor:'pointer', transition:'all 0.15s', background:!n.read?'var(--primary-glow)':'', borderLeft:!n.read?'3px solid var(--primary)':'3px solid transparent' }}
                     onMouseEnter={e=>e.currentTarget.style.background='rgba(255,255,255,0.03)'}
                     onMouseLeave={e=>e.currentTarget.style.background=!n.read?'var(--primary-glow)':''}
                   >
-                    <div style={{ width:42,height:42,borderRadius:12,display:'flex',alignItems:'center',justifyContent:'center',fontSize:20,background:cfg.bg,flexShrink:0 }}>{cfg.icon}</div>
+                    <div style={{ width:42, height:42, borderRadius:12, display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, background:cfg.bg, flexShrink:0 }}>{cfg.icon}</div>
                     <div style={{ flex:1 }}>
-                      <div style={{ fontWeight:600,fontSize:14,marginBottom:3 }}>{n.title}</div>
-                      <div style={{ fontSize:12,color:'var(--muted2)',lineHeight:1.5 }}>{n.message}</div>
-                      <div style={{ fontSize:11,color:'var(--muted)',marginTop:5 }}>{n.time}</div>
+                      <div style={{ fontWeight:600, fontSize:14, marginBottom:3 }}>{n.title}</div>
+                      <div style={{ fontSize:12, color:'var(--muted2)', lineHeight:1.5 }}>{n.message}</div>
+                      <div style={{ fontSize:11, color:'var(--muted)', marginTop:5 }}>{n.time}</div>
                     </div>
-                    {!n.read && <div style={{ width:8,height:8,borderRadius:'50%',background:'var(--primary)',flexShrink:0,marginTop:8 }}/>}
+                    {!n.read && <div style={{ width:8, height:8, borderRadius:'50%', background:'var(--primary)', flexShrink:0, marginTop:8 }}/>}
                   </div>
                 );
               })
           }
-          {!loading.notifications && notifications.length===0 && <div style={{ textAlign:'center',padding:'40px 24px',color:'var(--muted)' }}><div style={{ fontSize:40,marginBottom:10 }}>🔔</div><p>No notifications yet.</p></div>}
+          {!loading.notifications && notifications.length===0 && (
+            <div style={{ textAlign:'center', padding:'40px 24px', color:'var(--muted)' }}>
+              <div style={{ fontSize:40, marginBottom:10 }}>🔔</div><p>No notifications yet.</p>
+            </div>
+          )}
         </div>
       </div>
-
-      {showModal && (
+      {showModal && isAdmin && (
         <Modal title="Send Notification" onClose={() => setShowModal(false)}
           footer={<><button className="btn btn-ghost" onClick={() => setShowModal(false)}>Cancel</button><button className="btn btn-primary" onClick={handleSend} disabled={sending}>{sending?<><span className="spinner-sm"/>Sending...</>:<><Icon name="send" size={16}/>Send to All</>}</button></>}>
           <div className="form-group"><label className="form-label">Type</label>
-            <select className="form-input" value={form.type} onChange={e => setForm(f=>({...f,type:e.target.value}))}>
+            <select className="form-input" value={form.type} onChange={e=>setForm(f=>({...f,type:e.target.value}))}>
               <option value="info">📢 Information</option><option value="warning">⚠️ Fee Reminder</option><option value="alert">🔔 Alert</option><option value="success">✅ Confirmation</option>
             </select></div>
           <div className="form-group"><label className="form-label">Title</label><input className="form-input" placeholder="Notification title" value={form.title} onChange={e=>setForm(f=>({...f,title:e.target.value}))}/></div>

@@ -34,7 +34,7 @@ export default function ReportExport() {
         </div>
       </div>
 
-      {/* STATS */}
+    
       <div className="stats-grid">
         <StatCard label="Total Revenue"    value={`$${revenue.toFixed(0)}`} sub="From paid bills"        icon="💵" />
         <StatCard label="Active Members"   value={active}                   sub={`of ${members.length} total`} icon="👥" />
@@ -42,7 +42,7 @@ export default function ReportExport() {
         <StatCard label="Avg Daily Visits" value={47}                        sub="↑ 12% this month"       icon="📅" />
       </div>
 
-      {/* CHARTS */}
+     
       <div className="grid-2">
         <div className="card">
           <div className="card-header"><span className="card-title">Monthly Revenue</span></div>
@@ -54,7 +54,7 @@ export default function ReportExport() {
         </div>
       </div>
 
-      {/* PLAN BREAKDOWN */}
+    
       <div className="card" style={{ marginBottom: 24 }}>
         <div className="card-header"><span className="card-title">Plan Distribution</span></div>
         <div className="card-body">
@@ -79,7 +79,7 @@ export default function ReportExport() {
         </div>
       </div>
 
-      {/* EXPORT CARDS */}
+     
       <div className="card">
         <div className="card-header"><span className="card-title">Export Reports</span></div>
         <div className="card-body">
