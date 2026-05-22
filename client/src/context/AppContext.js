@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+/*import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { membersAPI, billsAPI, notificationsAPI, productsAPI, statsAPI } from '../services/api';
 
 
@@ -278,6 +278,217 @@ export function AppProvider({ children }) {
       // Cart
       addToCart, removeFromCart, clearCart,
       // Misc
+      addToast, fetchStats, unreadCount, cartTotal,
+    }}>
+      {children}
+    </AppContext.Provider>
+  );
+}
+
+export const useApp = () => useContext(AppContext);
+*/
+
+
+
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { membersAPI, billsAPI, notificationsAPI, productsAPI, statsAPI, dietAPI, exercisesAPI, analyticsAPI } from '../services/api';
+
+export const AppContext = createContext(null);
+
+export function AppProvider({ children }) {
+  const [members,       setMembers]       = useState([]);
+  const [bills,         setBills]         = useState([]);
+  const [notifications, setNotifications] = useState([]);
+  const [products,      setProducts]      = useState([]);
+  const [stats,         setStats]         = useState(null);
+  const [dietPlans,     setDietPlans]     = useState([]);
+  const [exercises,     setExercises]     = useState([]);
+  const [analytics,     setAnalytics]     = useState(null);
+  const [cart,          setCart]          = useState([]);
+  const [toasts,        setToasts]        = useState([]);
+  const [loading,       setLoading]       = useState({
+    members: false, bills: false, notifications: false, products: false,
+    stats: false, diet: false, exercises: false, analytics: false,
+  });
+  const [errors, setErrors] = useState({});
+
+  const addToast = useCallback((msg, type = 'success') => {
+    const id = Date.now();
+    setToasts(t => [...t, { id, msg, type }]);
+    setTimeout(() => setToasts(t => t.filter(x => x.id !== id)), 3500);
+  }, []);
+
+  const setLoad = (key, val) => setLoading(l => ({ ...l, [key]: val }));
+  const setErr  = (key, val) => setErrors(e => ({ ...e, [key]: val }));
+
+  // ── FETCH HELPERS ──────────────────────────────────────────────────────────
+  const fetchMembers = useCallback(async (params = {}) => {
+    setLoad('members', true);
+    try { const res = await membersAPI.getAll(params); setMembers(res.data); setErr('members', null); }
+    catch (e) { setErr('members', e.message); addToast('Failed to load members: ' + e.message, 'error'); }
+    finally { setLoad('members', false); }
+  }, [addToast]);
+
+  const fetchBills = useCallback(async () => {
+    setLoad('bills', true);
+    try { const res = await billsAPI.getAll(); setBills(res.data); }
+    catch (e) { addToast('Failed to load bills: ' + e.message, 'error'); }
+    finally { setLoad('bills', false); }
+  }, [addToast]);
+
+  const fetchNotifications = useCallback(async () => {
+    setLoad('notifications', true);
+    try { const res = await notificationsAPI.getAll(); setNotifications(res.data); }
+    catch (e) { addToast('Failed to load notifications: ' + e.message, 'error'); }
+    finally { setLoad('notifications', false); }
+  }, [addToast]);
+
+  const fetchProducts = useCallback(async (params = {}) => {
+    setLoad('products', true);
+    try { const res = await productsAPI.getAll(params); setProducts(res.data); }
+    catch (e) { addToast('Failed to load products: ' + e.message, 'error'); }
+    finally { setLoad('products', false); }
+  }, [addToast]);
+
+  const fetchStats = useCallback(async () => {
+    setLoad('stats', true);
+    try { const res = await statsAPI.getDashboard(); setStats(res.data); }
+    catch (e) { addToast('Failed to load stats: ' + e.message, 'error'); }
+    finally { setLoad('stats', false); }
+  }, [addToast]);
+
+  const fetchDiet = useCallback(async () => {
+    setLoad('diet', true);
+    try { const res = await dietAPI.getAll(); setDietPlans(res.data); }
+    catch (e) { addToast('Failed to load diet plans: ' + e.message, 'error'); }
+    finally { setLoad('diet', false); }
+  }, [addToast]);
+
+  const fetchExercises = useCallback(async () => {
+    setLoad('exercises', true);
+    try { const res = await exercisesAPI.getAll(); setExercises(res.data); }
+    catch (e) { addToast('Failed to load exercises: ' + e.message, 'error'); }
+    finally { setLoad('exercises', false); }
+  }, [addToast]);
+
+  const fetchAnalytics = useCallback(async () => {
+    setLoad('analytics', true);
+    try { const res = await analyticsAPI.get(); setAnalytics(res.data); }
+    catch (e) { addToast('Failed to load analytics: ' + e.message, 'error'); }
+    finally { setLoad('analytics', false); }
+  }, [addToast]);
+
+  useEffect(() => {
+    fetchMembers();
+    fetchBills();
+    fetchNotifications();
+    fetchProducts();
+    fetchStats();
+    fetchDiet();
+    fetchExercises();
+    fetchAnalytics();
+  }, [fetchMembers, fetchBills, fetchNotifications, fetchProducts, fetchStats, fetchDiet, fetchExercises, fetchAnalytics]);
+
+  // ── MEMBER ACTIONS ─────────────────────────────────────────────────────────
+  const addMember = async (data) => {
+    try { const res = await membersAPI.create(data); setMembers(ms => [...ms, res.data]); addToast('Member registered!'); fetchStats(); return res.data; }
+    catch (e) { addToast('Error: ' + e.message, 'error'); throw e; }
+  };
+  const updateMember = async (id, data) => {
+    try { const res = await membersAPI.update(id, data); setMembers(ms => ms.map(m => m.id === id ? res.data : m)); addToast('Member updated!'); return res.data; }
+    catch (e) { addToast('Error: ' + e.message, 'error'); throw e; }
+  };
+  const deleteMember = async (id) => {
+    try { await membersAPI.delete(id); setMembers(ms => ms.filter(m => m.id !== id)); addToast('Member removed.'); fetchStats(); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+  const checkInMember = async (id) => {
+    try { const res = await membersAPI.checkIn(id); setMembers(ms => ms.map(m => m.id === id ? res.data : m)); addToast(`${res.data.name} checked in! 💪`); return res.data; }
+    catch (e) { addToast('Check-in failed: ' + e.message, 'error'); }
+  };
+
+  // ── BILL ACTIONS ───────────────────────────────────────────────────────────
+  const addBill = async (data) => {
+    try { const res = await billsAPI.create(data); setBills(b => [res.data, ...b]); addToast(`Bill ${res.data.id} created!`); fetchStats(); return res.data; }
+    catch (e) { addToast('Error: ' + e.message, 'error'); throw e; }
+  };
+  const updateBill = async (id, data) => {
+    try { const res = await billsAPI.update(id, data); setBills(bs => bs.map(b => b.id === id ? res.data : b)); addToast('Bill updated!'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+  const deleteBill = async (id) => {
+    try { await billsAPI.delete(id); setBills(bs => bs.filter(b => b.id !== id)); addToast('Bill deleted.'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+
+  // ── NOTIFICATION ACTIONS ───────────────────────────────────────────────────
+  const sendNotification = async (data) => {
+    try { const res = await notificationsAPI.send(data); setNotifications(ns => [res.data, ...ns]); addToast('Notification sent!'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+  const markNotifRead = async (id) => {
+    try { await notificationsAPI.markRead(id); setNotifications(ns => ns.map(n => n.id === id ? { ...n, read: true } : n)); }
+    catch (e) {}
+  };
+  const markAllRead = async () => {
+    try { await notificationsAPI.markAllRead(); setNotifications(ns => ns.map(n => ({ ...n, read: true }))); addToast('All marked as read.'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+
+  // ── PRODUCT ACTIONS ────────────────────────────────────────────────────────
+  const addProduct = async (data) => {
+    try { const res = await productsAPI.create(data); setProducts(ps => [res.data, ...ps]); addToast('Product added!'); return res.data; }
+    catch (e) { addToast('Error: ' + e.message, 'error'); throw e; }
+  };
+  const updateProduct = async (id, data) => {
+    try { const res = await productsAPI.update(id, data); setProducts(ps => ps.map(p => p.id === id ? res.data : p)); addToast('Product updated!'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+  const deleteProduct = async (id) => {
+    try { await productsAPI.delete(id); setProducts(ps => ps.filter(p => p.id !== id)); addToast('Product removed.'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+
+  // ── DIET ACTIONS ───────────────────────────────────────────────────────────
+  const addDietPlan = async (data) => {
+    try { const res = await dietAPI.create(data); setDietPlans(ps => [...ps, res.data]); addToast('Meal added!'); return res.data; }
+    catch (e) { addToast('Error: ' + e.message, 'error'); throw e; }
+  };
+  const updateDietPlan = async (id, data) => {
+    try { const res = await dietAPI.update(id, data); setDietPlans(ps => ps.map(p => p.id === id ? res.data : p)); addToast('Meal updated!'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+  const deleteDietPlan = async (id) => {
+    try { await dietAPI.delete(id); setDietPlans(ps => ps.filter(p => p.id !== id)); addToast('Meal deleted.'); }
+    catch (e) { addToast('Error: ' + e.message, 'error'); }
+  };
+
+  // ── CART ACTIONS ───────────────────────────────────────────────────────────
+  const addToCart = (item) => {
+    setCart(c => {
+      const existing = c.find(x => x.id === item.id);
+      if (existing) return c.map(x => x.id === item.id ? { ...x, qty: x.qty + 1 } : x);
+      return [...c, { ...item, qty: 1 }];
+    });
+    const displayName = item.name.length > 30 ? item.name.slice(0, 30) + '…' : item.name;
+    addToast(`${displayName} added to cart`);
+  };
+  const removeFromCart = (id) => setCart(c => c.filter(x => x.id !== id));
+  const clearCart      = ()   => setCart([]);
+
+  const unreadCount = notifications.filter(n => !n.read).length;
+  const cartTotal   = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+  return (
+    <AppContext.Provider value={{
+      members, bills, notifications, products, stats, dietPlans, exercises, analytics,
+      cart, toasts, loading, errors,
+      addMember, updateMember, deleteMember, checkInMember, fetchMembers,
+      addBill, updateBill, deleteBill, fetchBills,
+      sendNotification, markNotifRead, markAllRead,
+      addProduct, updateProduct, deleteProduct, fetchProducts,
+      addDietPlan, updateDietPlan, deleteDietPlan, fetchDiet,
+      addToCart, removeFromCart, clearCart,
       addToast, fetchStats, unreadCount, cartTotal,
     }}>
       {children}
