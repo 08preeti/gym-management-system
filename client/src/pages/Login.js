@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-const registeredAccounts = [];
+//const registeredAccounts = [];
+const getAccounts = () => JSON.parse(localStorage.getItem('gymAccounts') || '[]');
+const saveAccounts = (accounts) => localStorage.setItem('gymAccounts', JSON.stringify(accounts));
 
 export default function Login({ onLogin }) {
   const [mode, setMode]         = useState('login');
@@ -16,10 +18,17 @@ export default function Login({ onLogin }) {
   const handleLogin = (e) => {
     e.preventDefault();
     if (!email || !password) { setError('Please fill in all fields.'); return; }
-    const account = registeredAccounts.find(
+    /*const account = registeredAccounts.find(
       a => a.email === email && a.password === password && a.role === tab
     );
-    if (!account) { setError('You have not created an account. Please register first.'); return; }
+    if (!account) { setError('You have not created an account. Please register first.'); return; }*/
+
+    const accounts = getAccounts();
+const account = accounts.find(
+  a => a.email === email && a.password === password && a.role === tab
+);
+if (!account) { setError('You have not created an account. Please register first.'); return; }
+
     onLogin(tab, { name: account.name, email: account.email });
   };
 
@@ -28,9 +37,16 @@ export default function Login({ onLogin }) {
     if (!name || !email || !password || !confirmPass) { setError('Please fill in all fields.'); return; }
     if (password !== confirmPass) { setError('Passwords do not match.'); return; }
     if (password.length < 6) { setError('Password must be at least 6 characters.'); return; }
-    const exists = registeredAccounts.find(a => a.email === email && a.role === tab);
+    /*const exists = registeredAccounts.find(a => a.email === email && a.role === tab);
     if (exists) { setError('An account with this email already exists.'); return; }
-    registeredAccounts.push({ name, email, password, role: tab });
+    registeredAccounts.push({ name, email, password, role: tab });*/
+
+    const accounts = getAccounts();
+  const exists = accounts.find(a => a.email === email && a.role === tab);
+if (exists) { setError('An account with this email already exists.'); return; }
+accounts.push({ name, email, password, role: tab });
+saveAccounts(accounts);
+
     setError('');
     setSuccess(`Account created as ${tab}! You can now sign in.`);
     setTimeout(() => { setMode('login'); setSuccess(''); setName(''); setConfirmPass(''); setPassword(''); }, 1500);

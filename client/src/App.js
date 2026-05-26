@@ -77,7 +77,7 @@ function AppShell({ role, user, onLogout }) {
       case 'dashboard':           return <Dashboard onNavigate={navigate} />;
       case 'add-member':          return <AddMember onNavigate={navigate} editData={editMember} onCancelEdit={() => setEditMember(null)} />;
       case 'manage-members':      return <ManageMembers onNavigate={navigate} onEditMember={handleEditMember} />;
-      case 'member-profile':      return <MemberProfile member={profileMember} onBack={() => navigate('search')} />;
+      case 'member-profile':      return <MemberProfile member={profileMember || { name: user?.name, email: user?.email, initials: user?.name?.split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2), plan: 'Basic', status: 'Active', fees: 'Paid', workouts: 0, streak: 0 }} onBack={() => navigate('dashboard')} />;
       case 'member-checkin':      return <MemberCheckIn />;
       case 'create-bill':         return <CreateBill />;
       case 'report-export':       return <ReportExport />;
