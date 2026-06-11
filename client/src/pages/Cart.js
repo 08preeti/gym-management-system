@@ -49,9 +49,34 @@ export default function Cart({ onNavigate }) {
         <div>
           {cart.map(item => (
             <div key={item.id} style={{ display: 'flex', gap: 14, padding: 16, background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 14, marginBottom: 12, alignItems: 'center' }}>
-              <div style={{ width: 56, height: 56, background: 'var(--surface)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, flexShrink: 0 }}>
-                {item.emoji}
-              </div>
+              <div
+  style={{
+    width: 56,
+    height: 56,
+    background: 'var(--surface)',
+    borderRadius: 12,
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 28,
+    flexShrink: 0
+  }}
+>
+  {item.image ? (
+    <img
+      src={item.image}
+      alt={item.name}
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover'
+      }}
+    />
+  ) : (
+    item.emoji
+  )}
+</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 4 }}>{item.name}</div>
                 <div style={{ fontSize: 12, color: 'var(--muted)' }}>{item.category}</div>

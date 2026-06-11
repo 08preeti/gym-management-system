@@ -4,3 +4,8 @@
   font-family: var(--mono);
   margin-bottom: 4px;
 }
+
+.page-title {
+  color :  rgb(6, 10, 66);
+}
+
